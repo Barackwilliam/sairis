@@ -18,7 +18,7 @@ STATIC_DIR=os.path.join(BASE_DIR,'static')
 SECRET_KEY = '#vw(03o=(9kbvg!&2d5i!2$_58x@_-3l4wujpow6(ym37jxnza'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -80,25 +80,25 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 
 
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
-
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql', 
-        'NAME': 'apex',
-        'USER': 'apex',
-        'PASSWORD': 'NyumbaChap',
-        'HOST': 'apex.czo2ie4uiexa.eu-north-1.rds.amazonaws.com',
-        'PORT': '5432',  
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql', 
+#         'NAME': 'apex',
+#         'USER': 'apex',
+#         'PASSWORD': 'NyumbaChap',
+#         'HOST': 'apex.czo2ie4uiexa.eu-north-1.rds.amazonaws.com',
+#         'PORT': '5432',  
+#     }
+# }
 
 
 

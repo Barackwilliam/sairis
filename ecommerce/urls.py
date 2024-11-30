@@ -32,21 +32,29 @@ urlpatterns = [
     path('admin-products', views.admin_products_view,name='admin-products'),
     path('admin-product-1/', views.admin_products_view_1,name='admin-products-1'),
     path('admin-product-2/', views.admin_products_view_2,name='admin-products-2'),
+    path('admin-product-3/', views.admin_products_view_3,name='admin-products-3'),
+
 
     path('admin-add-product/', views.admin_add_product_view,name='admin-add-product'),
     path('admin-add-product-1', views.admin_add_product_view_1, name='admin-add-product-1'),
     path('admin-add-product-2', views.admin_add_product_view_2,name='admin-add-product-2'),
+    path('admin-add-product-3', views.admin_add_product_view_3,name='admin-add-product-3'),
+
     path('way', views.way,name='way'),
 
 
     path('delete-product/<int:pk>', views.delete_product_view,name='delete-product'),
     path('delete-product-1/<int:pk>', views.delete_product_view_1,name='delete-product-1'), 
     path('delete-product-2/<int:pk>', views.delete_product_view_2,name='delete-product-2'),
+    path('delete-product-3/<int:pk>', views.delete_product_view_3,name='delete-product-3'),
+
 
 
     path('update-product/<int:pk>', views.update_product_view,name='update-product'),
     path('update-product-1/<int:pk>', views.update_product_view_1,name='update-product-1'),
     path('update-product-2/<int:pk>', views.update_product_view_2,name='update-product-2'),
+    path('update-product-3/<int:pk>', views.update_product_view_3,name='update-product-3'),
+
 
 
     path('admin-view-booking', views.admin_view_booking_view,name='admin-view-booking'),
@@ -62,6 +70,8 @@ urlpatterns = [
     path('customer-home', views.customer_home_view,name='customer-home'),
     path('customer-home-1', views.customer_home_view_1,name='customer-home-1'),
     path('customer-home-2', views.customer_home_view_2,name='customer-home-2'),
+    path('customer-home-3', views.customer_home_view_3,name='customer-home-3'),
+
 
     path('my-order', views.my_order_view,name='my-order'),
     path('my-profile', views.my_profile_view,name='my-profile'),

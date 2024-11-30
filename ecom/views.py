@@ -153,6 +153,13 @@ def admin_products_view_2(request):
     return render(request,'ecom/admin_products_2.html',{'product_2':product_2})
 
 
+@login_required(login_url='adminlogin')
+def admin_products_view_3(request):
+    product_3=models.Product_3.objects.all()
+    return render(request,'ecom/admin_products_3.html',{'product_3':product_3})
+
+
+
 
 def test(request):
     return render(request, 'ecom/product_3.html')
@@ -193,6 +200,18 @@ def admin_add_product_view_2(request):
     return render(request,'ecom/admin_add_products_2.html',{'productForm_2':productForm_2})
 
 
+@login_required(login_url='adminlogin')
+def admin_add_product_view_3(request):
+    productForm_3=forms.ProductForm_3()
+    if request.method=='POST':
+        productForm_3=forms.ProductForm_3(request.POST, request.FILES)
+        if productForm_3.is_valid():
+            productForm_3.save()
+        return redirect('admin-products-3')
+    return render(request,'ecom/admin_add_products_3.html',{'productForm_3':productForm_3})
+
+
+
 
 
 @login_required(login_url='adminlogin')
@@ -218,6 +237,14 @@ def delete_product_view_2(request,pk):
     product_2=models.Product_2.objects.get(id=pk)
     product_2.delete()
     return redirect('admin-products-2')
+
+
+
+@login_required(login_url='adminlogin')
+def delete_product_view_3(request,pk):
+    product_3=models.Product_3.objects.get(id=pk)
+    product_3.delete()
+    return redirect('admin-products-3')
 
 
 @login_required(login_url='adminlogin')
@@ -257,6 +284,20 @@ def update_product_view_2(request,pk):
             productForm_2.save()
             return redirect('admin-products-2')
     return render(request,'ecom/admin_update_product_2.html',{'productForm_2':productForm_2})
+
+
+
+
+@login_required(login_url='adminlogin')
+def update_product_view_3(request,pk):
+    product_3=models.Product_3.objects.get(id=pk)
+    productForm_3=forms.ProductForm_3(instance=product_3)
+    if request.method=='POST':
+        productForm_3=forms.ProductForm_3(request.POST,request.FILES,instance=product_3)
+        if productForm_3.is_valid():
+            productForm_3.save()
+            return redirect('admin-products-3')
+    return render(request,'ecom/admin_update_product_3.html',{'productForm_3':productForm_3})
 
 
 
@@ -466,6 +507,17 @@ def customer_home_view_2(request):
     else:
         product_count_in_cart=0
     return render(request,'ecom/page_2.html',{'product_2':product_2,'product_count_in_cart':product_count_in_cart})
+
+
+def customer_home_view_3(request):
+    product_3=models.Product_3.objects.all()
+    if 'product_ids' in request.COOKIES:
+        product_ids = request.COOKIES['product_ids']
+        counter=product_ids.split('|')
+        product_count_in_cart=len(set(counter))
+    else:
+        product_count_in_cart=0
+    return render(request,'ecom/page_3.html',{'product_3':product_3,'product_count_in_cart':product_count_in_cart})
 
 
 # shipment address before placing order

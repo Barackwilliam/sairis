@@ -43,6 +43,16 @@ class Product_2(models.Model):
     description=models.CharField(max_length=500)
     def __str__(self):
         return self.name
+    
+
+   
+class Product_3(models.Model):
+    name=models.CharField(max_length=80)
+    product_image= CloudinaryField('image')
+    price = models.PositiveIntegerField()
+    description=models.CharField(max_length=500)
+    def __str__(self):
+        return self.name
 
 
 class Orders(models.Model):
