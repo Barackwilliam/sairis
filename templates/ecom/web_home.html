@@ -80,7 +80,7 @@
                      <a href="{% url 'home' %}">Home</a>
                      <a href="{% url 'customer-home' %}">Building Material</a>
                      <a href="{% url 'customer-home-2' %}">Cereal & Grains</a>
-                     <a href="{% url 'customer-home-3' %}"> Motorcycle Spare parts</a> 
+                     <a href="{% url 'customer-home-3' %}"> Motorcycle Spares</a> 
                      <a href="{% url 'customer-home-1' %}">Livestock Keeping</a>
                   </div>
                   <span class="toggle_icon" onclick="openNav()"><img src="{% static 'images/toggle-icon.png' %}"></span>
@@ -91,6 +91,7 @@
                         <a class="dropdown-item" href="{% url 'customer-home' %}">Building Material</a>
                         <a class="dropdown-item" href="{% url 'customer-home-2' %}">Cereal & Grains</a>
                         <a class="dropdown-item" href="{% url 'customer-home-1' %}">Livestock Keeping</a>
+                        <a class="dropdown-item" href="{% url 'customer-home-3' %}">Motorcycle Spares</a>
                         
                      </div>
                   </div>
@@ -332,6 +333,70 @@
          </div>
       </div>
       <!-- fashion section end -->
+
+
+
+      <div class="fashion_section">
+         <div id="main_slider" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+               <div class="carousel-item active">
+                  <div class="container">
+                     <h1 class="fashion_taital">Motorcycle Accessories (Vifaa vya Pikipiki)</h1>
+                     <div class="fashion_section_2">
+                        <div class="row">
+                           <div class="col-lg-4 col-sm-4">
+                              <div class="box_main">
+                                 <h4 class="shirt_text">Headlight</h4>
+                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 <div class="tshirt_img"><img src="{% static 'images/n3.jpg'%}"></div>
+                                 <div class="btn_main">
+                                    <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
+                                    <div class="seemore_bt"><a href="{% url 'customer-home-3' %}">See More</a></div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-lg-4 col-sm-4">
+                              <div class="box_main">
+                                 <h4 class="shirt_text">Rearview Mirror</h4>
+                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>
+                                 <div class="tshirt_img"><img src="{% static 'images/n2.jpg'%}"></div>
+                                 <div class="btn_main">
+                                    <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
+                                    <div class="seemore_bt"><a href="{% url 'customer-home-3' %}">See More</a></div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-lg-4 col-sm-4">
+                              <div class="box_main">
+                                 <h4 class="shirt_text">Wheels</h4>
+                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 <div class="tshirt_img"><img src="{% static 'images/n1.jpg'%}"></div>
+                                 <div class="btn_main">
+                                    <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
+                                    <div class="seemore_bt"><a href="{% url 'customer-home-3' %}">See More</a></div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+             
+
+
+
+
+
+            </div>
+            <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
+            <i class="fa fa-angle-left"></i>
+            </a>
+            <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
+            <i class="fa fa-angle-right"></i>
+            </a>
+         </div>
+      </div>
+
+
+
       <!-- electronic section start -->
       <div class="fashion_section">
          <div id="electronic_main_slider" class="carousel slide" data-ride="carousel">
