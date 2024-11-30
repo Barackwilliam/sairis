@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional Sign Up</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #1e2a38;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .signup-container {
+      background-color: #2c3a49;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .signup-container img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 20px;
+    }
+
+    .signup-container h1 {
+      color: #99a9b5;
+      font-size: 24px;
+      margin-bottom: 30px;
+    }
+
+    .form-control {
+      background-color: #34495e;
+      border: none;
+      color: #fff;
+    }
+
+    .form-control::placeholder {
+      color: #99a9b5;
+    }
+
+    .form-control:focus {
+      background-color: #34495e;
+      border-color: #3dd597;
+      box-shadow: none;
+    }
+
+    .btn-signup {
+      background-color: #3dd597;
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      padding: 10px;
+      transition: background-color 0.3s;
+    }
+
+    .btn-signup:hover {
+      background-color: #32c08c;
+    }
+
+    .login-link {
+      color: #99a9b5;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .login-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Password strength message styles */
+    .password-strength {
+      font-size: 14px;
+      text-align: left;
+      color: #99a9b5;
+      margin-top: -10px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-container">
+    <!-- Logo -->
+    <img src="logo.png" alt="Logo">
+    <!-- Title -->
+    <h1>SIGN UP</h1>
+    <!-- Form -->
+    <form>
+      <div class="mb-3">
+        <input type="email" class="form-control" placeholder="info@mailaddress.com" required>
+      </div>
+      <div class="mb-3">
+        <input type="password" class="form-control" id="password-input" placeholder="********" required>
+        <small id="password-strength" class="password-strength">Enter a password</small>
+      </div>
+      <button type="submit" class="btn btn-signup w-100">Sign Up</button>
+    </form>
+    <!-- Login Link -->
+    <p class="mt-3">
+      <a href="#" class="login-link">Already have an account? Log in</a>
+    </p>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Password Strength Script -->
+  <script>
+    const passwordInput = document.getElementById('password-input');
+    const passwordStrength = document.getElementById('password-strength');
+
+    passwordInput.addEventListener('input', (e) => {
+      const value = e.target.value;
+      if (value.length === 0) {
+        passwordStrength.textContent = 'Enter a password';
+        passwordStrength.style.color = '#99a9b5';
+      } else if (value.length < 6) {
+        passwordStrength.textContent = 'Weak';
+        passwordStrength.style.color = 'red';
+      } else if (value.length < 10) {
+        passwordStrength.textContent = 'Medium';
+        passwordStrength.style.color = 'orange';
+      } else {
+        passwordStrength.textContent = 'Strong';
+        passwordStrength.style.color = 'green';
+      }
+    });
+  </script>
+</body>
+</html>

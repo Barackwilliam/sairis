@@ -1,0 +1,195 @@
+{% extends 'ecom/admin_base.html' %}
+{% load widget_tweaks %}
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Products</title>
+    <style>
+        /* General page styling */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Centering the form container both horizontally and vertically */
+        .form-container {
+            display: flex;
+            justify-content: center; /* Horizontally center */
+            align-items: center; /* Vertically center */
+            flex-grow: 1;
+            padding: 20px;
+            min-height: 100vh; /* Full viewport height */
+            box-sizing: border-box;
+        }
+
+        /* Form box styling */
+        .form-box {
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+            padding: 40px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .form-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Form header */
+        .note {
+            background: linear-gradient(135deg, #36D1DC, #5B86E5);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        /* Input fields */
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #5B86E5;
+            outline: none;
+        }
+
+        /* Submit Button */
+        .btnSubmit {
+            width: 100%;
+            padding: 15px;
+            background-color: #5B86E5;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btnSubmit:hover {
+            background-color: #36D1DC;
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #282828;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 30px;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .form-box {
+                padding: 25px;
+                width: 100%;
+                max-width: 95%; /* Adjust max-width on mobile */
+            }
+
+            .form-control {
+                padding: 12px;
+                font-size: 14px;
+            }
+
+            .btnSubmit {
+                padding: 12px;
+                font-size: 16px;
+            }
+
+            .note {
+                font-size: 20px;
+                padding: 15px;
+            }
+
+            /* Ensuring the form container takes full height */
+            .form-container {
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center; /* Centering vertically */
+                align-items: center; /* Centering horizontally */
+            }
+
+            /* Form columns adjustment for smaller screens */
+            .row {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .col-md-6 {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Form Container (centered both horizontally and vertically) -->
+    <div class="form-container">
+        <div class="form-box">
+            <div class="note">
+                ADD ANIMAL'S DATA
+            </div>
+
+            <!-- Form Start -->
+            <form method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+                <div class="form-content">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="product_name">Product Name</label>
+                                {% render_field productForm_1.name class="form-control" placeholder="Product Name" %}
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                {% render_field productForm_1.description class="form-control" placeholder="Description" %}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="price">Price</label>
+                                {% render_field productForm_1.price class="form-control" placeholder="Price"%}
+                            </div>
+                            <div class="form-group">
+                                <label for="product_image">Product Image</label>
+                                {% render_field productForm_1.product_image class="form-control" placeholder="Product Image" %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btnSubmit">ADD</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+  
+
+{% endblock content %}

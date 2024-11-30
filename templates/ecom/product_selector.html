@@ -1,0 +1,129 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alien Sci-Fi Buttons</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: radial-gradient(circle, #0f2027, #203a43, #2c5364); /* Alien-like gradient */
+      color: white;
+      font-family: 'Orbitron', sans-serif; /* Sci-fi font */
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .alien-button {
+      position: relative;
+      padding: 15px 40px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #000000;
+      text-decoration: none; /* Remove underline for <a> */
+      border: 2px solid transparent;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.4s ease-in-out;
+      overflow: hidden;
+      display: inline-block;
+      text-align: center;
+    }
+
+    /* Button 1 (Glowing Effect) */
+    .alien-button:nth-child(1) {
+      background: linear-gradient(90deg, #ff4d4d, #ff7d4d);
+      box-shadow: 0 0 10px #ff4d4d, 0 0 20px #ff7d4d, 0 0 30px #ff4d4d;
+    }
+    .alien-button:nth-child(1):hover {
+      box-shadow: 0 0 15px #ff7d4d, 0 0 30px #ff4d4d, 0 0 45px #ff7d4d;
+      transform: scale(1.1);
+    }
+
+    /* Button 2 (Pulse Effect) */
+    .alien-button:nth-child(2) {
+      background: linear-gradient(90deg, #24c6dc, #514a9d);
+      animation: pulse 2s infinite;
+    }
+    .alien-button:nth-child(2):hover {
+      animation: none;
+      transform: translateY(-5px) scale(1.1);
+    }
+    @keyframes pulse {
+      0%, 100% {
+        box-shadow: 0 0 15px #24c6dc, 0 0 30px #514a9d;
+      }
+      50% {
+        box-shadow: 0 0 30px #514a9d, 0 0 45px #24c6dc;
+      }
+    }
+
+    /* Button 3 (Background Glow Wave) */
+    .alien-button:nth-child(3) {
+      background: linear-gradient(90deg, #ff9a9e, #fad0c4);
+    }
+    .alien-button:nth-child(3)::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 200%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+      animation: wave 2s infinite;
+    }
+    .alien-button:nth-child(3):hover {
+      transform: translateY(-5px) rotate(-2deg);
+    }
+    @keyframes wave {
+      0% {
+        left: -100%;
+      }
+      100% {
+        left: 100%;
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .alien-button {
+        font-size: 1.2rem;
+        padding: 12px 30px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .alien-button {
+        font-size: 1rem;
+        padding: 10px 20px;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="button-container">
+    <a href="{% url 'admin-add-product' %}" class="alien-button">Building material</a>
+    <a href="{% url 'admin-add-product-1' %}" class="alien-button">Animals</a>
+    <a href="{% url 'admin-add-product-2' %}" class="alien-button">Grains</a>
+  </div>
+</body>
+</html>

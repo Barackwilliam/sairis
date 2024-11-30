@@ -1,9 +1,12 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
+
+
 from django.contrib.auth.models import User
 # Create your models here.
 class Customer(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
-    profile_pic= models.ImageField(upload_to='profile_pic/CustomerProfilePic/',null=True,blank=True)
+    profile_pic= CloudinaryField('image')
     address = models.CharField(max_length=40)
     mobile = models.CharField(max_length=20,null=False)
     @property
@@ -17,10 +20,27 @@ class Customer(models.Model):
 
 
 class Product(models.Model):
-    name=models.CharField(max_length=40)
-    product_image= models.ImageField(upload_to='product_image/',null=True,blank=True)
+    name=models.CharField(max_length=80)
+    product_image= CloudinaryField('image')
     price = models.PositiveIntegerField()
-    description=models.CharField(max_length=40)
+    description=models.CharField(max_length=500)
+    def __str__(self):
+        return self.name
+    
+
+class Product_1(models.Model):
+    name=models.CharField(max_length=80)
+    product_image= CloudinaryField('image')
+    price = models.PositiveIntegerField()
+    description=models.CharField(max_length=500)
+    def __str__(self):
+        return self.name
+    
+class Product_2(models.Model):
+    name=models.CharField(max_length=80)
+    product_image= CloudinaryField('image')
+    price = models.PositiveIntegerField()
+    description=models.CharField(max_length=500)
     def __str__(self):
         return self.name
 

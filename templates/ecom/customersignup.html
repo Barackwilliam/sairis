@@ -1,180 +1,158 @@
-<!DOCTYPE html>
+{%load static%}
 {% load widget_tweaks %}
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional Sign Up</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #1e2a38;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
 
+    .signup-container {
+      background-color: #2c3a49;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+    }
 
+    .signup-container img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 20px;
+    }
 
-    <style media="screen">
-      body {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    background: linear-gradient(to right, #b92b27, #1565c0)
-}
+    .signup-container h1 {
+      color: #99a9b5;
+      font-size: 24px;
+      margin-bottom: 30px;
+    }
 
-.box {
-    width: 500px;
-    padding: 40px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    background: #191919;
-    ;
-    text-align: center;
-    transition: 0.25s;
-    margin-top: 100px
-}
+    .form-control {
+      background-color: #34495e;
+      border: none;
+      color: #fff;
+    }
 
-.box input[type="text"],
-.box input[type="password"] {
-    border: 0;
-    background: none;
-    display: block;
-    margin: 20px auto;
-    text-align: center;
-    border: 2px solid #3498db;
-    padding: 10px 10px;
-    width: 250px;
-    outline: none;
-    color: white;
-    border-radius: 24px;
-    transition: 0.25s
-}
+    .form-control::placeholder {
+      color: #99a9b5;
+    }
 
-.box h1 {
-    color: white;
-    text-transform: uppercase;
-    font-weight: 500
-}
+    .form-control:focus {
+      background-color: #34495e;
+      border-color: #3dd597;
+      box-shadow: none;
+    }
 
-.box input[type="text"]:focus,
-.box input[type="password"]:focus {
-    width: 300px;
-    border-color: #2ecc71
-}
+    .btn-signup {
+      background-color: #3dd597;
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      padding: 10px;
+      transition: background-color 0.3s;
+    }
 
-.box input[type="submit"] {
-    border: 0;
-    background: none;
-    display: block;
-    margin: 20px auto;
-    text-align: center;
-    border: 2px solid #2ecc71;
-    padding: 14px 40px;
-    outline: none;
-    color: white;
-    border-radius: 24px;
-    transition: 0.25s;
-    cursor: pointer
-}
+    .btn-signup:hover {
+      background-color: #32c08c;
+    }
 
-.box input[type="submit"]:hover {
-    background: #2ecc71
-}
+    .login-link {
+      color: #99a9b5;
+      text-decoration: none;
+      font-size: 14px;
+    }
 
-.forgot {
-    text-decoration: underline
-}
+    .login-link:hover {
+      text-decoration: underline;
+    }
 
-ul.social-network {
-    list-style: none;
-    display: inline;
-    margin-left: 0 !important;
-    padding: 0
-}
+    .password-strength {
+      font-size: 14px;
+      text-align: left;
+      color: #99a9b5;
+      margin-top: -10px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-container">
+    <!-- Logo -->
+    <img src="{% static 'images/apex_logo.png'%}" height="100px" width="100px" alt="Logo">
+    <!-- Title -->
+    <h1>CREATE ACCOUNT</h1>
+    <!-- Form -->
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="mb-3">
+        {% render_field userForm.first_name class="form-control" placeholder="First Name" %}
+      </div>
+      <div class="mb-3">
+        {% render_field userForm.last_name class="form-control" placeholder="Last Name" %}
+      </div>
+      <div class="mb-3">
+        {% render_field userForm.username class="form-control" placeholder="Username" %}
+      </div>
+      <div class="mb-3">
+        {% render_field userForm.password class="form-control" id="password-input" placeholder="Password" %}
+        <small id="password-strength" class="password-strength">Enter a password</small>
+      </div>
+      <div class="mb-3">
+        {% render_field customerForm.address class="form-control" placeholder="Address" %}
+      </div>
+      <div class="mb-3">
+        {% render_field customerForm.mobile class="form-control" placeholder="Mobile" %}
+      </div>
+      <div class="mb-3">
+        {% render_field customerForm.profile_pic class="form-control" placeholder="Profile pic" %}
+      </div>
+      <button type="submit" class="btn btn-signup w-100">Sign Up</button>
+    </form>
+    <!-- Login Link -->
+    <p class="mt-3">
+      <a href="{% url 'customerlogin' %}" class="login-link">Already have an account? Log in</a>
+    </p>
+  </div>
 
-ul.social-network li {
-    display: inline;
-    margin: 0 5px
-}
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-.social-network a.icoFacebook:hover {
-    background-color: #3B5998
-}
+  <!-- Password Strength Script -->
+  <script>
+    const passwordInput = document.getElementById('password-input');
+    const passwordStrength = document.getElementById('password-strength');
 
-.social-network a.icoTwitter:hover {
-    background-color: #33ccff
-}
-
-.social-network a.icoGoogle:hover {
-    background-color: #BD3518
-}
-
-.social-network a.icoFacebook:hover i,
-.social-network a.icoTwitter:hover i,
-.social-network a.icoGoogle:hover i {
-    color: #fff
-}
-
-a.socialIcon:hover,
-.socialHoverClass {
-    color: #44BCDD
-}
-
-.social-circle li a {
-    display: inline-block;
-    position: relative;
-    margin: 0 auto 0 auto;
-    border-radius: 50%;
-    text-align: center;
-    width: 50px;
-    height: 50px;
-    font-size: 20px
-}
-
-.social-circle li i {
-    margin: 0;
-    line-height: 50px;
-    text-align: center
-}
-
-.social-circle li a:hover i,
-.triggeredHover {
-    transform: rotate(360deg);
-    transition: all 0.2s
-}
-
-.social-circle i {
-    color: #fff;
-    transition: all 0.8s;
-    transition: all 0.8s
-}
-    </style>
-  </head>
-  <body>
-    {% include "ecom/navbar.html" %}
-    <div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card">
-                <form class="box" method="post" enctype="multipart/form-data">
-                  {% csrf_token %}
-                    <h1>CUSTOMER SIGNUP</h1>
-                    <p class="text-muted"> Please enter your details to create account !</p>
-                      {% render_field userForm.first_name class="form-control" placeholder="First Name" %}
-                        {% render_field userForm.last_name class="form-control" placeholder="Last Name" %}
-                          {% render_field userForm.username class="form-control" placeholder="Username" %}
-                            {% render_field userForm.password class="form-control" placeholder="Password" %}
-                              {% render_field customerForm.address class="form-control" placeholder="Address" %}
-                                {% render_field customerForm.mobile class="form-control" placeholder="Mobile" %}
-                                  {% render_field customerForm.profile_pic class="form-control" placeholder="Profile pic" %}
-                  
-                     <input type="submit" name="" value="Create">
-
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-<br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br>
-{% include "ecom/footer.html" %}
-  </body>
+    passwordInput.addEventListener('input', (e) => {
+      const value = e.target.value;
+      if (value.length === 0) {
+        passwordStrength.textContent = 'Enter a password';
+        passwordStrength.style.color = '#99a9b5';
+      } else if (value.length < 6) {
+        passwordStrength.textContent = 'Weak';
+        passwordStrength.style.color = 'red';
+      } else if (value.length < 10) {
+        passwordStrength.textContent = 'Medium';
+        passwordStrength.style.color = 'orange';
+      } else {
+        passwordStrength.textContent = 'Strong';
+        passwordStrength.style.color = 'green';
+      }
+    });
+  </script>
+</body>
 </html>

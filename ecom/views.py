@@ -7,17 +7,30 @@ from django.contrib.auth.decorators import login_required,user_passes_test
 from django.contrib import messages
 from django.conf import settings
 
-def home_view(request):
-    products=models.Product.objects.all()
-    if 'product_ids' in request.COOKIES:
-        product_ids = request.COOKIES['product_ids']
-        counter=product_ids.split('|')
-        product_count_in_cart=len(set(counter))
-    else:
-        product_count_in_cart=0
-    if request.user.is_authenticated:
-        return HttpResponseRedirect('afterlogin')
-    return render(request,'ecom/index.html',{'products':products,'product_count_in_cart':product_count_in_cart})
+# def home_view(request):
+#     products=models.Product.objects.all()
+#     if 'product_ids' in request.COOKIES:
+#         product_ids = request.COOKIES['product_ids']
+#         counter=product_ids.split('|')
+#         product_count_in_cart=len(set(counter))
+#     else:
+#         product_count_in_cart=0
+#     if request.user.is_authenticated:
+#         return HttpResponseRedirect('afterlogin')
+#     return render(request,'ecom/web_home.html',{'products':products,'product_count_in_cart':product_count_in_cart})
+
+
+
+def home(request):
+    return render(request,'ecom/web_home.html')
+
+def pay(request):
+    return render(request,'ecom/pay.html')
+
+
+
+def way(request):
+    return render(request,'ecom/product_selector.html')
 
 
 #for showing login button for admin(by sumit)
@@ -128,6 +141,22 @@ def admin_products_view(request):
     products=models.Product.objects.all()
     return render(request,'ecom/admin_products.html',{'products':products})
 
+@login_required(login_url='adminlogin')
+def admin_products_view_1(request):
+    product_1=models.Product_1.objects.all()
+    return render(request,'ecom/admin_products_1.html',{'product_1':product_1})
+
+
+@login_required(login_url='adminlogin')
+def admin_products_view_2(request):
+    product_2=models.Product_2.objects.all()
+    return render(request,'ecom/admin_products_2.html',{'product_2':product_2})
+
+
+
+def test(request):
+    return render(request, 'ecom/product_3.html')
+
 
 # admin add product by clicking on floating button
 @login_required(login_url='adminlogin')
@@ -137,8 +166,33 @@ def admin_add_product_view(request):
         productForm=forms.ProductForm(request.POST, request.FILES)
         if productForm.is_valid():
             productForm.save()
-        return HttpResponseRedirect('admin-products')
+        return redirect('admin-products')
     return render(request,'ecom/admin_add_products.html',{'productForm':productForm})
+
+
+@login_required(login_url='adminlogin')
+def admin_add_product_view_1(request):
+    productForm_1=forms.ProductForm_1()
+    if request.method=='POST':
+        productForm_1=forms.ProductForm_1(request.POST, request.FILES)
+        if productForm_1.is_valid():
+            productForm_1.save()
+        return redirect('admin-products-1')
+    return render(request,'ecom/admin_add_products_1.html',{'productForm_1':productForm_1})
+
+
+
+@login_required(login_url='adminlogin')
+def admin_add_product_view_2(request):
+    productForm_2=forms.ProductForm_2()
+    if request.method=='POST':
+        productForm_2=forms.ProductForm_2(request.POST, request.FILES)
+        if productForm_2.is_valid():
+            productForm_2.save()
+        return redirect('admin-products-2')
+    return render(request,'ecom/admin_add_products_2.html',{'productForm_2':productForm_2})
+
+
 
 
 @login_required(login_url='adminlogin')
@@ -146,6 +200,24 @@ def delete_product_view(request,pk):
     product=models.Product.objects.get(id=pk)
     product.delete()
     return redirect('admin-products')
+
+
+
+
+@login_required(login_url='adminlogin')
+def delete_product_view_1(request,pk):
+    product_1=models.Product_1.objects.get(id=pk)
+    product_1.delete()
+    return redirect('admin-products-1')
+
+
+
+
+@login_required(login_url='adminlogin')
+def delete_product_view_2(request,pk):
+    product_2=models.Product_2.objects.get(id=pk)
+    product_2.delete()
+    return redirect('admin-products-2')
 
 
 @login_required(login_url='adminlogin')
@@ -158,6 +230,34 @@ def update_product_view(request,pk):
             productForm.save()
             return redirect('admin-products')
     return render(request,'ecom/admin_update_product.html',{'productForm':productForm})
+
+
+
+@login_required(login_url='adminlogin')
+def update_product_view_1(request,pk):
+    product_1=models.Product_1.objects.get(id=pk)
+    productForm_1=forms.ProductForm_1(instance=product_1)
+    if request.method=='POST':
+        productForm_1=forms.ProductForm_1(request.POST,request.FILES,instance=product_1)
+        if productForm_1.is_valid():
+            productForm_1.save()
+            return redirect('admin-products-1')
+    return render(request,'ecom/admin_update_product_1.html',{'productForm_1':productForm_1})
+
+
+
+
+@login_required(login_url='adminlogin')
+def update_product_view_2(request,pk):
+    product_2=models.Product_2.objects.get(id=pk)
+    productForm_2=forms.ProductForm_2(instance=product_2)
+    if request.method=='POST':
+        productForm_2=forms.ProductForm_2(request.POST,request.FILES,instance=product_2)
+        if productForm_2.is_valid():
+            productForm_2.save()
+            return redirect('admin-products-2')
+    return render(request,'ecom/admin_update_product_2.html',{'productForm_2':productForm_2})
+
 
 
 @login_required(login_url='adminlogin')
@@ -327,8 +427,8 @@ def send_feedback_view(request):
 #---------------------------------------------------------------------------------
 #------------------------ CUSTOMER RELATED VIEWS START ------------------------------
 #---------------------------------------------------------------------------------
-@login_required(login_url='customerlogin')
-@user_passes_test(is_customer)
+# @login_required(login_url='customerlogin')
+# @user_passes_test(is_customer)
 def customer_home_view(request):
     products=models.Product.objects.all()
     if 'product_ids' in request.COOKIES:
@@ -337,8 +437,35 @@ def customer_home_view(request):
         product_count_in_cart=len(set(counter))
     else:
         product_count_in_cart=0
-    return render(request,'ecom/customer_home.html',{'products':products,'product_count_in_cart':product_count_in_cart})
+    # return render(request,'ecom/customer_home.html',{'products':products,'product_count_in_cart':product_count_in_cart})
+    return render(request,'ecom/page.html',{'products':products,'product_count_in_cart':product_count_in_cart})
 
+
+
+# @login_required(login_url='customerlogin')
+# @user_passes_test(is_customer)
+def customer_home_view_1(request):
+    product_1=models.Product_1.objects.all()
+    if 'product_ids' in request.COOKIES:
+        product_ids = request.COOKIES['product_ids']
+        counter=product_ids.split('|')
+        product_count_in_cart=len(set(counter))
+    else:
+        product_count_in_cart=0
+    return render(request,'ecom/page_1.html',{'product_1':product_1,'product_count_in_cart':product_count_in_cart})
+
+
+# @login_required(login_url='customerlogin')
+# @user_passes_test(is_customer)
+def customer_home_view_2(request):
+    product_2=models.Product_2.objects.all()
+    if 'product_ids' in request.COOKIES:
+        product_ids = request.COOKIES['product_ids']
+        counter=product_ids.split('|')
+        product_count_in_cart=len(set(counter))
+    else:
+        product_count_in_cart=0
+    return render(request,'ecom/page_2.html',{'product_2':product_2,'product_count_in_cart':product_count_in_cart})
 
 
 # shipment address before placing order

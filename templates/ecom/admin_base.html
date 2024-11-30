@@ -1,89 +1,77 @@
+
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
   <style type="text/css">
-    .bs-example {
-      margin: 0px;
-
+    /* Body Setup for Footer at Bottom */
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
     }
 
-    .navbar-brand {
-      font-size: 20px;
-      font-family: sans-serif;
-
+    /* Main Content */
+    main {
+      flex-grow: 1;
     }
 
-        /*---------------------------------------
-           Social section
-        -----------------------------------------*/
-        footer {
-          padding: 0px 0px 0px 0px;
-          background-color: black;
-          margin: 0px;
-        }
+    /* Footer Styling */
+    footer {
+      background: linear-gradient(90deg, #1d1d1d, #000000);
+      color: white;
+      padding: 30px 0;
+    }
 
+    footer .social-icon {
+      font-size: 1.5rem;
+      margin: 0 10px;
+      padding: 10px;
+      color: white;
+      border-radius: 50%;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
 
-        #ftr {
+    footer .fa-facebook {
+      background: #3b5998;
+    }
 
-          padding: 20px;
-        }
+    footer .fa-whatsapp {
+      background: #25d366;
+    }
 
-        .fa {
+    footer .fa-instagram {
+      background: #c32aa3;
+    }
 
-          font-size: 23px;
-          width: 60px;
-          text-align: center;
-          text-decoration: none;
-          margin: 5px 2px;
-          border-radius: 50%;
-        }
+    footer .fa-twitter {
+      background: #1da1f2;
+    }
 
-        .fa:hover {
-          opacity: 0.5;
-          text-decoration: none;
-        }
+    footer .social-icon:hover {
+      transform: scale(1.2);
+      color: white;
+    }
 
-        .fa-facebook {
-          background: #3B5998;
-          color: white;
-          margin-top: 30px;
-        }
-
-        .fa-whatsapp {
-          background: #25d366;
-          color: white;
-        }
-
-        .fa-twitter {
-          background: #55ACEE;
-          color: white;
-        }
-
-        .fa-instagram {
-          background: #125688;
-          color: white;
-        }
-
-        p {
-          text-align: center;
-
-        }
+    footer p {
+      margin-top: 10px;
+      font-size: 0.9rem;
+    }
   </style>
 </head>
 
 <body>
-
-
-
+  <!-- Navbar -->
   <div class="bs-example">
     <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background:#337AB7;">
-      <a href="/" class="navbar-brand">Ecommerce</a>
+      <a href="{% url 'admin-dashboard' %}" class="navbar-brand">Dashboard</a>
       <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -91,7 +79,6 @@
       <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
         <div class="navbar-nav">
           <a href="/view-customer" class="nav-item nav-link">Customer</a>
-          <a href="/admin-view-booking" class="nav-item nav-link">Booking</a>
           <a href="/admin-products" class="nav-item nav-link">Products</a>
           <a href="/view-feedback" class="nav-item nav-link">Feedback</a>
         </div>
@@ -99,41 +86,34 @@
         <div class="navbar-nav navbar-right">
           <a href="/logout" class="nav-item nav-link">LOGOUT</a>
         </div>
-
       </div>
     </nav>
   </div>
 
-  <!-- content start-->
-  {% block content %}
+  <!-- Content -->
+  <main>
+    {% block content %}
+    {% endblock content %}
+  </main>
 
-  {% endblock content %}
-  <!-- content end-->
-<br><br><br><br><br><br><br><br>
-  <footer>
-    <p>
-      <a id="ftr" href="https://facebook.com/sumit.luv/" class="fa fa-facebook"></a>
-      <a id="ftr" href="https://api.whatsapp.com/send?phone=919572181024&text=Hello%20Sumit.%0d%0aHow%20are%20you%20%3f%0d%0aI%20came%20from%20your%20website.&source=&data=#" class="fa fa-whatsapp"></a>
-      <a id="ftr" href="https://instagram.com/sumit.luv" class="fa fa-instagram"></a>
-      <a id="ftr" href="https://twitter.com/sumitkumar1503" class="fa fa-twitter"></a>
-    </p>
-
-    <br>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 col-sm-12">
-          <div style="color:#ffffff;" class="wow fadeInUp footer-copyright">
-            <p>Made in India <br>
-              Copyright &copy; 2020 LazyCoder </p>
-          </div>
-        </div>
-      </div>
+  <!-- Footer -->
+  <footer class="text-center">
+    <!-- Social Media Icons -->
+    <div>
+      <a href="#" class="fa fa-facebook social-icon"></a>
+      <a href="https://api.whatsapp.com/send?phone=919572181024&text=Hello%20Sumit.%0d%0aHow%20are%20you%20%3f%0d%0aI%20came%20from%20your%20website.&source=&data=#" class="fa fa-whatsapp social-icon"></a>
+      <a href="#" class="fa fa-instagram social-icon"></a>
+      <a href="#" class="fa fa-twitter social-icon"></a>
     </div>
+
+    <!-- Copyright Information -->
+    <p>Made in Tanzania <br> Copyright &copy; 2024 Apex4 Co. Limited. All Rights Reserved.</p>
   </footer>
-  <!--
-  developed By : sumit kumar
-  facebook : fb.com/sumit.luv
-  youtube : youtube.com/lazycoders
-  -->
+
+  <!-- External Scripts -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
+
 </html>
