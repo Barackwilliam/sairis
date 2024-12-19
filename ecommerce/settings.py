@@ -181,6 +181,32 @@ EMAIL_RECEIVING_USER = ['to@gmail.com'] # email on which you will receive messag
 
 
 
+
+# # For development or quick testing use console as the email backend
+# EMAIL_BACKEND="django.core.mail.backends.console.EmailBackend"
+# # For production use smtp, uncomment the below variable
+# # EMAIL_BACKEND="django.core.mail.backends.smtp.EmailBackend"
+# EMAIL_HOST="smtp.gmail.com"
+# EMAIL_PORT=587
+# EMAIL_USE_TLS=True
+# EMAIL_FROM_ADDRESS="nyumbachap@yahoo.com"
+# EMAIL_HOST_USER="barackwilliam12@gmail.com"
+# EMAIL_HOST_PASSWORD="independence1961"
+
+# # =============================
+# # Other
+
+# DEBUG=True
+# SECRET_KEY="<o!ld8nrt4vc*h1zoey*wj48x*q0#ss12h=+zh)kk^6b3aygg=!>"
+
+
+
+
+
+
+
+
+
 cloudinary.config(
     cloud_name='drc3xiipg',  # Your Cloudinary cloud name
     api_key='321181265585861',   # Replace with your Cloudinary API key
