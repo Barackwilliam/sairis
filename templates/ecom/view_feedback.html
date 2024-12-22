@@ -260,7 +260,12 @@
         <a href="/view-customer">Customers</a>
         <!-- <a href="/admin-view-booking">Booking</a> -->
         <a href="/admin-products">Products</a>
-        <a href="/logout">Logout</a>
+        <form method="POST" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <input type="submit" value="Logout">
+  
+        </form>
+
     </nav>
 </header>
 

@@ -84,7 +84,12 @@
         </div>
 
         <div class="navbar-nav navbar-right">
-          <a href="/logout" class="nav-item nav-link">LOGOUT</a>
+          <form method="POST" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <input type="submit" value="Logout">
+  
+        </form>
+
         </div>
       </div>
     </nav>
