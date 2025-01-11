@@ -7,6 +7,11 @@ from django.contrib.auth.decorators import login_required,user_passes_test
 from django.contrib import messages
 from django.conf import settings
 
+
+
+# hosting settings
+
+
 # def home_view(request):
 #     products=models.Product.objects.all()
 #     if 'product_ids' in request.COOKIES:
@@ -21,8 +26,9 @@ from django.conf import settings
 
 
 
-def home(request):
-    return render(request,'ecom/web_home.html')
+
+
+
 
 def pay(request):
     return render(request,'ecom/pay.html')
@@ -139,7 +145,7 @@ def update_customer_view(request,pk):
 @login_required(login_url='adminlogin')
 def admin_products_view(request):
     products=models.Product.objects.all()
-    return render(request,'ecom/admin_products.html',{'products':products})
+    return render(request,'ecom/admin_products_0.html',{'products':products})
 
 @login_required(login_url='adminlogin')
 def admin_products_view_1(request):
@@ -158,6 +164,17 @@ def admin_products_view_3(request):
     product_3=models.Product_3.objects.all()
     return render(request,'ecom/admin_products_3.html',{'product_3':product_3})
 
+
+@login_required(login_url='adminlogin')
+def admin_products_view_4(request):
+    product_4=models.Product_4.objects.all()
+    return render(request,'ecom/admin_products_4.html',{'product_4':product_4})
+
+
+@login_required(login_url='adminlogin')
+def admin_products_view_5(request):
+    product_5=models.Product_5.objects.all()
+    return render(request,'ecom/admin_products_5.html',{'product_5':product_5})
 
 
 
@@ -212,6 +229,28 @@ def admin_add_product_view_3(request):
 
 
 
+@login_required(login_url='adminlogin')
+def admin_add_product_view_4(request):
+    productForm_4=forms.ProductForm_4()
+    if request.method=='POST':
+        productForm_4=forms.ProductForm_4(request.POST, request.FILES)
+        if productForm_4.is_valid():
+            productForm_4.save()
+        return redirect('admin-products-4')
+    return render(request,'ecom/admin_add_products_4.html',{'productForm_4':productForm_4})
+
+
+
+@login_required(login_url='adminlogin')
+def admin_add_product_view_5(request):
+    productForm_5=forms.ProductForm_5()
+    if request.method=='POST':
+        productForm_5=forms.ProductForm_5(request.POST, request.FILES)
+        if productForm_5.is_valid():
+            productForm_5.save()
+        return redirect('admin-products-5')
+    return render(request,'ecom/admin_add_products_5.html',{'productForm_5':productForm_5})
+
 
 
 @login_required(login_url='adminlogin')
@@ -245,6 +284,21 @@ def delete_product_view_3(request,pk):
     product_3=models.Product_3.objects.get(id=pk)
     product_3.delete()
     return redirect('admin-products-3')
+
+
+@login_required(login_url='adminlogin')
+def delete_product_view_4(request,pk):
+    product_4=models.Product_4.objects.get(id=pk)
+    product_4.delete()
+    return redirect('admin-products-4')
+
+
+@login_required(login_url='adminlogin')
+def delete_product_view_5(request,pk):
+    product_5=models.Product_5.objects.get(id=pk)
+    product_5.delete()
+    return redirect('admin-products-5')
+
 
 
 @login_required(login_url='adminlogin')
@@ -298,6 +352,34 @@ def update_product_view_3(request,pk):
             productForm_3.save()
             return redirect('admin-products-3')
     return render(request,'ecom/admin_update_product_3.html',{'productForm_3':productForm_3})
+
+
+
+
+@login_required(login_url='adminlogin')
+def update_product_view_4(request,pk):
+    product_4=models.Product_4.objects.get(id=pk)
+    productForm_4=forms.ProductForm_4(instance=product_4)
+    if request.method=='POST':
+        productForm_4=forms.ProductForm_4(request.POST,request.FILES,instance=product_4)
+        if productForm_4.is_valid():
+            productForm_4.save()
+            return redirect('admin-products-4')
+    return render(request,'ecom/admin_update_product_4.html',{'productForm_4':productForm_4})
+
+
+
+@login_required(login_url='adminlogin')
+def update_product_view_5(request,pk):
+    product_5=models.Product_5.objects.get(id=pk)
+    productForm_5=forms.ProductForm_5(instance=product_5)
+    if request.method=='POST':
+        productForm_5=forms.ProductForm_5(request.POST,request.FILES,instance=product_5)
+        if productForm_5.is_valid():
+            productForm_5.save()
+            return redirect('admin-products-5')
+    return render(request,'ecom/admin_update_product_5.html',{'productForm_5':productForm_5})
+
 
 
 
@@ -520,6 +602,30 @@ def customer_home_view_3(request):
     return render(request,'ecom/page_3.html',{'product_3':product_3,'product_count_in_cart':product_count_in_cart})
 
 
+
+def customer_home_view_4(request):
+    product_4=models.Product_4.objects.all()
+    if 'product_ids' in request.COOKIES:
+        product_ids = request.COOKIES['product_ids']
+        counter=product_ids.split('|')
+        product_count_in_cart=len(set(counter))
+    else:
+        product_count_in_cart=0
+    return render(request,'ecom/page_4.html',{'product_4':product_4,'product_count_in_cart':product_count_in_cart})
+
+
+
+def customer_home_view_5(request):
+    product_5=models.Product_5.objects.all()
+    if 'product_ids' in request.COOKIES:
+        product_ids = request.COOKIES['product_ids']
+        counter=product_ids.split('|')
+        product_count_in_cart=len(set(counter))
+    else:
+        product_count_in_cart=0
+    return render(request,'ecom/page_5.html',{'product_5':product_5,'product_count_in_cart':product_count_in_cart})
+
+
 # shipment address before placing order
 @login_required(login_url='customerlogin')
 def customer_address_view(request):
@@ -718,3 +824,48 @@ def contactus_view(request):
             send_mail(str(name)+' || '+str(email),message, settings.EMAIL_HOST_USER, settings.EMAIL_RECEIVING_USER, fail_silently = False)
             return render(request, 'ecom/contactussuccess.html')
     return render(request, 'ecom/contactus.html', {'form':sub})
+
+
+
+
+
+# views.py
+def home(request):
+   
+    return render(request,'ecom/web_home.html')
+
+
+
+
+
+
+from django.shortcuts import render
+from .models import HostingStatus
+
+# Create a view to calculate and pass the remaining time to the template
+def hosting_status_view(request):
+    # Fetch the HostingStatus object or objects from the database
+    hosting_statuses = HostingStatus.objects.all()
+
+    # Prepare a list to hold formatted remaining time for each HostingStatus
+    status_with_time_remaining = []
+
+    for status in hosting_statuses:
+        remaining = status.time_remaining()
+        days = remaining.days
+        hours, remainder = divmod(remaining.seconds, 3600)
+        minutes, seconds = divmod(remainder, 60)
+        
+        # Prepare the time remaining as a formatted string
+        time_remaining_str = f"{days} days, {hours} hours, {seconds} seconds"
+        
+        status_with_time_remaining.append({
+            'status': status,
+            'time_remaining': time_remaining_str
+        })
+
+    # Pass the statuses and their remaining times to the template
+    return render(request, 'ecom/payment_remainder.html', {'status_with_time_remaining': status_with_time_remaining})
+
+def hosting(request):
+    return render(request, 'ecom/host.html')

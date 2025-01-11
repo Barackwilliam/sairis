@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #  'ecom.middleware.HostingMiddleware',
 
 ]
 
@@ -89,16 +90,20 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 
 
 
+
+
+# supabase db
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql', 
-        'NAME': 'apex',
-        'USER': 'apex',
-        'PASSWORD': 'NyumbaChap',
-        'HOST': 'apex.czo2ie4uiexa.eu-north-1.rds.amazonaws.com',
-        'PORT': '5432',  
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',  # Jina la database
+        'USER': 'postgres.vzfpyxrgbriujsoajqkk',  # Jina la mtumiaji
+        'PASSWORD': 'NyumbaChap',  # Badilisha kwa password yako halisi
+        'HOST': 'aws-0-us-west-1.pooler.supabase.com',  # URL ya server ya database
+        'PORT': '5432',  # Port ya PostgreSQL (default ni 5432)
     }
 }
+
 
 
 
@@ -227,8 +232,8 @@ MEDIA_URL = 'https://res.cloudinary.com/drc3xiipg/'
 
 
 
-DATABASES = {
-    'default': dj_database_url.config(
-        default='postgres://apex:NyumbaChap@apex.czo2ie4uiexa.eu-north-1.rds.amazonaws.com:5432/apex'
-    )
-}
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default='postgres://apex:NyumbaChap@apex.czo2ie4uiexa.eu-north-1.rds.amazonaws.com:5432/apex'
+#     )
+# }

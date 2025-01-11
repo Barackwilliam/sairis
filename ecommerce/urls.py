@@ -1,11 +1,4 @@
-"""
 
-Developed By : sumit kumar
-facebook : fb.com/sumit.luv
-Youtube :youtube.com/lazycoders
-
-
-"""
 from django.contrib import admin
 from django.urls import path
 from ecom import views
@@ -33,20 +26,31 @@ urlpatterns = [
     path('admin-product-1/', views.admin_products_view_1,name='admin-products-1'),
     path('admin-product-2/', views.admin_products_view_2,name='admin-products-2'),
     path('admin-product-3/', views.admin_products_view_3,name='admin-products-3'),
+    path('admin-product-4/', views.admin_products_view_4,name='admin-products-4'),
+    path('admin-product-5/', views.admin_products_view_5,name='admin-products-5'),
+
 
 
     path('admin-add-product/', views.admin_add_product_view,name='admin-add-product'),
     path('admin-add-product-1', views.admin_add_product_view_1, name='admin-add-product-1'),
     path('admin-add-product-2', views.admin_add_product_view_2,name='admin-add-product-2'),
     path('admin-add-product-3', views.admin_add_product_view_3,name='admin-add-product-3'),
+    path('admin-add-product-4', views.admin_add_product_view_4,name='admin-add-product-4'),
+    path('admin-add-product-5', views.admin_add_product_view_5,name='admin-add-product-5'),
 
-    path('way', views.way,name='way'),
+
+    path('way', views.way,name='way'), 
+    path('hosting', views.hosting,name='hosting'),
 
 
     path('delete-product/<int:pk>', views.delete_product_view,name='delete-product'),
     path('delete-product-1/<int:pk>', views.delete_product_view_1,name='delete-product-1'), 
     path('delete-product-2/<int:pk>', views.delete_product_view_2,name='delete-product-2'),
     path('delete-product-3/<int:pk>', views.delete_product_view_3,name='delete-product-3'),
+    path('delete-product-4/<int:pk>', views.delete_product_view_4,name='delete-product-4'),
+    path('delete-product-5/<int:pk>', views.delete_product_view_5,name='delete-product-5'),
+
+
 
 
 
@@ -54,6 +58,9 @@ urlpatterns = [
     path('update-product-1/<int:pk>', views.update_product_view_1,name='update-product-1'),
     path('update-product-2/<int:pk>', views.update_product_view_2,name='update-product-2'),
     path('update-product-3/<int:pk>', views.update_product_view_3,name='update-product-3'),
+    path('update-product-4/<int:pk>', views.update_product_view_4,name='update-product-4'),
+    path('update-product-5/<int:pk>', views.update_product_view_5,name='update-product-5'),
+
 
 
 
@@ -71,6 +78,9 @@ urlpatterns = [
     path('customer-home-1', views.customer_home_view_1,name='customer-home-1'),
     path('customer-home-2', views.customer_home_view_2,name='customer-home-2'),
     path('customer-home-3', views.customer_home_view_3,name='customer-home-3'),
+    path('customer-home-4', views.customer_home_view_4,name='customer-home-4'),
+    path('customer-home-5', views.customer_home_view_5,name='customer-home-5'),
+
 
 
     path('my-order', views.my_order_view,name='my-order'),

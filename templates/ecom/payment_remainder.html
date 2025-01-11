@@ -1,0 +1,16 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Reminder</title>
+</head>
+<body>
+ Time remaining before being Inactive
+ {% for entry in status_with_time_remaining %}
+ <p>Hosting Status: {{ entry.status }}</p>
+ <p>Remaining Time: {{ entry.time_remaining }}</p>
+{% endfor %}
+
+    <a href="/renew-hosting/">Renew Hosting</a>
+</body>
+</html>

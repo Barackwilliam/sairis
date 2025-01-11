@@ -1,0 +1,79 @@
+<!-- owner_dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+
+    <p>Time remaining for hosting plan:</p>
+    <div id="countdown">
+        <p>{{ days_left }} days, {{ hours_left }} hours, {{ minutes_left }} minutes, {{ seconds_left }} seconds</p>
+    </div>
+
+    <p>Status of hosting: 
+        {% if hosting.status == 'active' %}
+            Active
+        {% else %}
+            Inactive (Expired)
+        {% endif %}
+    </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- JavaScript Countdown for Admin Dashboard -->
+<script>
+    function updateCountdown() {
+        var days = {{ days_left }};
+        var hours = {{ hours_left }};
+        var minutes = {{ minutes_left }};
+        var seconds = {{ seconds_left }};
+        
+        setInterval(function() {
+            if (seconds > 0) {
+                seconds--;
+            } else {
+                if (minutes > 0) {
+                    minutes--;
+                    seconds = 59;
+                } else {
+                    if (hours > 0) {
+                        hours--;
+                        minutes = 59;
+                        seconds = 59;
+                    } else {
+                        if (days > 0) {
+                            days--;
+                            hours = 23;
+                            minutes = 59;
+                            seconds = 59;
+                        }
+                    }
+                }
+            }
+
+            // Update the HTML to display new time
+            $('#countdown').html(days + ' days, ' + hours + ' hours, ' + minutes + ' minutes, ' + seconds + ' seconds');
+        }, 1000); // Update every second
+    }
+
+    // Call the function to start the countdown
+    updateCountdown();
+</script>
+
+
+</body>
+</html>

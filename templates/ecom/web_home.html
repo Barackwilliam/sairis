@@ -3,6 +3,11 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
+      <style>
+         body {
+            background-color: #f26522;
+         }
+      </style>
       <!-- basic -->
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +16,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>Apex-home</title>
+      <title>Sairis Group</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -38,7 +43,7 @@
       <link rel="stylesoeet" href="{% static 'css/owl.theme.default.min.css' %}">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
    </head>
-   <body>
+   <body style="background-image: url('{% static 'images/background-image.jpg' %}'); background-size: cover; background-repeat: no-repeat; background-position: center; background-attachment: fixed;">
       <!-- banner bg main start -->
       <div class="banner_bg_main">
          <!-- header top section start -->
@@ -61,15 +66,15 @@
          </div>
          <!-- header top section start -->
          <!-- logo section start -->
-         <!-- <div class="logo_section">
+         <div class="logo_section">
             <div class="container">
                <div class="row">
                   <div class="col-sm-12">
-                     <div class="logo"><a href="index.html"><img src="{% static 'images/apex_logo.png'%}" height="70px" width="100px"></a></div>
+                     <!-- <div class="logo"><a href="index.html"><img src="{% static 'images/apex_logo.png'%}" height="70px" width="100px"></a></div> -->
                   </div>
                </div>
             </div>
-         </div> -->
+         </div>
          <!-- logo section end -->
          <!-- header section start -->
          <div class="header_section">
@@ -78,20 +83,25 @@
                   <div id="mySidenav" class="sidenav">
                      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                      <a href="{% url 'home' %}">Home</a>
-                     <a href="{% url 'customer-home' %}">Building Material</a>
-                     <a href="{% url 'customer-home-2' %}">Cereal & Grains</a>
-                     <a href="{% url 'customer-home-3' %}"> Motorcycle Spares</a> 
-                     <a href="{% url 'customer-home-1' %}">Livestock Keeping</a>
+                     <a href="{% url 'customer-home' %}">Nguo Za Wakubwa</a>
+                     <a href="{% url 'customer-home-1' %}">Mikoba (Handbags)</a>
+                     <a href="{% url 'customer-home-2' %}"> Viatu (Shoes)</a> 
+                     <a href="{% url 'customer-home-3' %}">Nguo Za Watoto</a>
+                     <a href="{% url 'customer-home-4' %}">Homedecor na Gadgets</a>
+                     <a href="{% url 'customer-home-5' %}">Midoli (Toys)</a>
                   </div>
                   <span class="toggle_icon" onclick="openNav()"><img src="{% static 'images/toggle-icon.png' %}"></span>
                   <div class="dropdown">
                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Category 
                      </button>
                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="{% url 'customer-home' %}">Building Material</a>
-                        <a class="dropdown-item" href="{% url 'customer-home-2' %}">Cereal & Grains</a>
-                        <a class="dropdown-item" href="{% url 'customer-home-1' %}">Livestock Keeping</a>
-                        <a class="dropdown-item" href="{% url 'customer-home-3' %}">Motorcycle Spares</a>
+                        <a class="dropdown-item" href="{% url 'customer-home' %}">Nguo Za Wakubwa</a>
+                        <a class="dropdown-item" href="{% url 'customer-home-1' %}">Mikoba (Handbags)</a>
+                        <a class="dropdown-item" href="{% url 'customer-home-2' %}">Viatu (Shoes)</a>
+                        <a class="dropdown-item" href="{% url 'customer-home-3' %}">Nguo Za Watoto</a>
+                        <a class="dropdown-item" href="{% url 'customer-home-4' %}">Homedecor na Gadgets</a>
+                        <a class="dropdown-item" href="{% url 'customer-home-5' %}">Midoli (Toys)</a>
+
                         
                      </div>
                   </div>
@@ -140,7 +150,7 @@
             <div class="container">
                <div class="row">
                   <div class="col-sm-12">
-                     <div class="logo"><a href="index.html"><img src="{% static 'images/apex_logo.png'%}" height="70px" width="100px"></a></div>
+                     <!-- <div class="logo"><a href="index.html"><img src="{% static 'images/logo.png'%}" height="70px" width="100px"></a></div> -->
                   </div>
                </div>
             </div>
@@ -157,7 +167,7 @@
                      <div class="carousel-item active">
                         <div class="row">
                            <div class="col-sm-12">
-                              <h1 class="banner_taital">Get Start <br>Your favriot shoping</h1>
+                              <h1 class="banner_taital">Get Start <br>Your favorite shopping</h1>
                               <div class="buynow_bt"><a href="#">Buy Now</a></div>
                            </div>
                         </div>
@@ -166,7 +176,7 @@
                      <div class="carousel-item">
                         <div class="row">
                            <div class="col-sm-12">
-                              <h1 class="banner_taital">Get Start <br>Your favriot shoping</h1>
+                              <h1 class="banner_taital">Get Start <br>Your favorite shopping</h1>
                               <div class="buynow_bt"><a href="#">Buy Now</a></div>
                            </div>
                         </div>
@@ -174,7 +184,7 @@
                      <div class="carousel-item">
                         <div class="row">
                            <div class="col-sm-12">
-                              <h1 class="banner_taital">Get Start <br>Your favriot shoping</h1>
+                              <h1 class="banner_taital">Get Start <br>Your favorite shopping</h1>
                               <div class="buynow_bt"><a href="#">Buy Now</a></div>
                            </div>
                         </div>
@@ -195,19 +205,20 @@
 
       
       <!-- banner bg main end -->
-      <!-- fashion section start -->
-      <div class="fashion_section">
+      <!-- Nguo za wakubwa start -->
+      <div class="fashion_section" style="background-color: #5770a0de;">
          <div id="main_slider" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                <div class="carousel-item active">
                   <div class="container">
-                     <h1 class="fashion_taital">Building Material (Vifaa vya Ujenzi)</h1>
+                     <h1 class="fashion_taital">Nguo za Wakubwa</h1>
                      <div class="fashion_section_2">
                         <div class="row">
                            <div class="col-lg-4 col-sm-4">
                               <div class="box_main">
-                                 <h4 class="shirt_text">Building Tools</h4>
-                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 <div class="tshirt_img"><img src="{% static 'images/pic1.png'%}"></div>
+                                 <h4 class="shirt_text">On Trending Fashion</h4>
+                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 
+                                 <div class="tshirt_img"><img src="{% static 'images/lg-clothes1.jpg'%}"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
                                     <div class="seemore_bt"><a href="{% url 'customer-home' %}">See More</a></div>
@@ -216,9 +227,9 @@
                            </div>
                            <div class="col-lg-4 col-sm-4">
                               <div class="box_main">
-                                 <h4 class="shirt_text">Super Cement</h4>
+                                 <h4 class="shirt_text">Latest Clothes</h4>
                                  <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>
-                                 <div class="tshirt_img"><img src="{% static 'images/pic2.jpg'%}"></div>
+                                 <div class="tshirt_img"><img src="{% static 'images/lg-clothes2.png'%}"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
                                     <div class="seemore_bt"><a href="{% url 'customer-home' %}">See More</a></div>
@@ -227,8 +238,9 @@
                            </div>
                            <div class="col-lg-4 col-sm-4">
                               <div class="box_main">
-                                 <h4 class="shirt_text">Super Cement</h4>
-                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 <div class="tshirt_img"><img src="{% static 'images/pic.jpg'%}"></div>
+                                 <h4 class="shirt_text">Super Brand</h4>
+                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 
+                                 <div class="tshirt_img"><img src="{% static 'images/lg-clothes3.jpeg'%}"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
                                     <div class="seemore_bt"><a href="{% url 'customer-home' %}">See More</a></div>
@@ -239,90 +251,7 @@
                      </div>
                   </div>
                </div>
-               <!-- <div class="carousel-item">
-                  <div class="container">
-                     <h1 class="fashion_taital">Building Material (Vifaa vya Ujenzi)</h1>
-                     <div class="fashion_section_2">
-                        <div class="row">
-                           <div class="col-lg-4 col-sm-4">
-                              <div class="box_main">
-                                 <h4 class="shirt_text">Man T -shirt</h4>
-                                 <p class="price_text">Price  <span style="color: #262626;">$ 30</span></p>
-                                 <div class="tshirt_img"><img src="images/tshirt-img.png"></div>
-                                 <div class="btn_main">
-                                    <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="col-lg-4 col-sm-4">
-                              <div class="box_main">
-                                 <h4 class="shirt_text">Man -shirt</h4>
-                                 <p class="price_text">Price  <span style="color: #262626;">$ 30</span></p>
-                                 <div class="tshirt_img"><img src="images/dress-shirt-img.png"></div>
-                                 <div class="btn_main">
-                                    <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="col-lg-4 col-sm-4">
-                              <div class="box_main">
-                                 <h4 class="shirt_text">Woman Scart</h4>
-                                 <p class="price_text">Price  <span style="color: #262626;">$ 30</span></p>
-                                 <div class="tshirt_img"><img src="images/women-clothes-img.png"></div>
-                                 <div class="btn_main">
-                                    <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div> -->
-               <!-- <div class="carousel-item">
-                  <div class="container">
-                     <h1 class="fashion_taital">Building Material (Vifaa vya Ujenzi)</h1>
-                     <div class="fashion_section_2">
-                        <div class="row">
-                           <div class="col-lg-4 col-sm-4">
-                              <div class="box_main">
-                                 <h4 class="shirt_text">Man T -shirt</h4>
-                                 <p class="price_text">Price  <span style="color: #262626;">$ 30</span></p>
-                                 <div class="tshirt_img"><img src="images/tshirt-img.png"></div>
-                                 <div class="btn_main">
-                                    <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="col-lg-4 col-sm-4">
-                              <div class="box_main">
-                                 <h4 class="shirt_text">Man -shirt</h4>
-                                 <p class="price_text">Price  <span style="color: #262626;">$ 30</span></p>
-                                 <div class="tshirt_img"><img src="images/dress-shirt-img.png"></div>
-                                 <div class="btn_main">
-                                    <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="col-lg-4 col-sm-4">
-                              <div class="box_main">
-                                 <h4 class="shirt_text">Woman Scart</h4>
-                                 <p class="price_text">Price  <span style="color: #262626;">$ 30</span></p>
-                                 <div class="tshirt_img"><img src="images/women-clothes-img.png"></div>
-                                 <div class="btn_main">
-                                    <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div> -->
+               
             </div>
             <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
             <i class="fa fa-angle-left"></i>
@@ -332,46 +261,48 @@
             </a>
          </div>
       </div>
-      <!-- fashion section end -->
+      <!-- Nguo za wakubwa end -->
 
 
-
+         <!-- Handbags start -->
       <div class="fashion_section">
          <div id="main_slider" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                <div class="carousel-item active">
                   <div class="container">
-                     <h1 class="fashion_taital">Motorcycle Accessories (Vifaa vya Pikipiki)</h1>
+                     <h1 class="fashion_taital">Handbags</h1>
                      <div class="fashion_section_2">
                         <div class="row">
                            <div class="col-lg-4 col-sm-4">
                               <div class="box_main">
-                                 <h4 class="shirt_text">Headlight</h4>
-                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 <div class="tshirt_img"><img src="{% static 'images/n3.jpg'%}"></div>
+                                 <h4 class="shirt_text">Bag</h4>
+                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                
+                                  <div class="tshirt_img"><img src="{% static 'images/bag1.jpeg'%}"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="{% url 'customer-home-3' %}">See More</a></div>
+                                    <div class="seemore_bt"><a href="{% url 'customer-home-1' %}">See More</a></div>
                                  </div>
                               </div>
                            </div>
                            <div class="col-lg-4 col-sm-4">
                               <div class="box_main">
-                                 <h4 class="shirt_text">Rearview Mirror</h4>
+                                 <h4 class="shirt_text">New Brand</h4>
                                  <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>
-                                 <div class="tshirt_img"><img src="{% static 'images/n2.jpg'%}"></div>
+                                 <div class="tshirt_img"><img src="{% static 'images/bag2.jpg'%}"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="{% url 'customer-home-3' %}">See More</a></div>
+                                    <div class="seemore_bt"><a href="{% url 'customer-home-1' %}">See More</a></div>
                                  </div>
                               </div>
                            </div>
                            <div class="col-lg-4 col-sm-4">
                               <div class="box_main">
-                                 <h4 class="shirt_text">Wheels</h4>
-                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 <div class="tshirt_img"><img src="{% static 'images/n1.jpg'%}"></div>
+                                 <h4 class="shirt_text">Super Brand</h4>
+                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 
+                                 <div class="tshirt_img"><img src="{% static 'images/bag3.jpg'%}"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="{% url 'customer-home-3' %}">See More</a></div>
+                                    <div class="seemore_bt"><a href="{% url 'customer-home-1' %}">See More</a></div>
                                  </div>
                               </div>
                            </div>
@@ -379,11 +310,7 @@
                      </div>
                   </div>
                </div>
-             
-
-
-
-
+            
 
             </div>
             <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
@@ -396,44 +323,314 @@
       </div>
 
 
+      <!-- handbag end -->
 
-      <!-- electronic section start -->
+
+
+
+       <!-- shoes start -->
+       <div class="fashion_section" style="background-color: #5770a0de;">
+         <div id="main_slider" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+               <div class="carousel-item active">
+                  <div class="container">
+                     <h1 class="fashion_taital">Shoes</h1>
+                     <div class="fashion_section_2">
+                        <div class="row">
+                           <div class="col-lg-4 col-sm-4">
+                              <div class="box_main">
+                                 <h4 class="shirt_text">Sneaker Shoes</h4>
+                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 
+                                 <div class="tshirt_img"><img src="{% static 'images/shoes1.jpg'%}"></div>
+                                 <div class="btn_main">
+                                    <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
+                                    <div class="seemore_bt"><a href="{% url 'customer-home-2' %}">See More</a></div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-lg-4 col-sm-4">
+                              <div class="box_main">
+                                 <h4 class="shirt_text">Trending shoes</h4>
+                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>
+                                 <div class="tshirt_img"><img src="{% static 'images/shoes2.jpg'%}"></div>
+                                 <div class="btn_main">
+                                    <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
+                                    <div class="seemore_bt"><a href="{% url 'customer-home-2' %}">See More</a></div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-lg-4 col-sm-4">
+                              <div class="box_main">
+                                 <h4 class="shirt_text">Super Brand</h4>
+                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 
+                                 <div class="tshirt_img"><img src="{% static 'images/shoes3.jpg'%}"></div>
+                                 <div class="btn_main">
+                                    <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
+                                    <div class="seemore_bt"><a href="{% url 'customer-home-2' %}">See More</a></div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
+            <i class="fa fa-angle-left"></i>
+            </a>
+            <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
+            <i class="fa fa-angle-right"></i>
+            </a>
+         </div>
+      </div>
+      <!-- Shoes end -->
+
+
+
+
+
+      <!-- Nguo za watoto start -->
+      <div class="jewellery_section">
+         <div id="jewellery_main_slider" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+               <div class="carousel-item active">
+                  <div class="container">
+                     <h1 class="fashion_taital">Nguo Za Watoto</h1>
+                     <div class="fashion_section_2">
+                        <div class="row">
+                           <div class="col-lg-4 col-sm-4">
+                              <div class="box_main">
+                                 <h4 class="shirt_text">Special Brand</h4>
+                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 
+                                 <div class="jewellery_img"><img src="{% static 'images/sm-clothes1.jpg'%}"></div>
+                                 <div class="btn_main">
+                                    <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
+                                    <div class="seemore_bt"><a href="{% url 'customer-home-3' %}">See More</a></div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-lg-4 col-sm-4">
+                              <div class="box_main">
+                                 <h4 class="shirt_text">Latest Brand</h4>
+                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 
+                                 <div class="jewellery_img"><img src="{% static 'images/sm-clothes2.jpg'%}"></div>
+                                 <div class="btn_main">
+                                    <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
+                                    <div class="seemore_bt"><a href="{% url 'customer-home-3' %}">See More</a></div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-lg-4 col-sm-4">
+                              <div class="box_main">
+                                 <h4 class="shirt_text">Super Brand</h4>
+                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 
+                                 <div class="jewellery_img"><img src="{% static 'images/sm-clothes3.jpg'%}"></div>
+                                 <div class="btn_main">
+                                    <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
+                                    <div class="seemore_bt"><a href="{% url 'customer-home-3' %}">See More</a></div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="carousel-item">
+                  <div class="container">
+                     <h1 class="fashion_taital">Nguo za watoto</h1>
+                     <div class="fashion_section_2">
+                        <div class="row">
+                           <div class="col-lg-4 col-sm-4">
+                              <div class="box_main">
+                                 <h4 class="shirt_text">Baby Shine</h4>
+                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 
+                                 <div class="jewellery_img"><img src="{% static 'images/sm-clothes4.png'%}"></div>
+                                 <div class="btn_main">
+                                    <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
+                                    <div class="seemore_bt"><a href="{% url 'customer-home-3' %}">See More</a></div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-lg-4 col-sm-4">
+                              <div class="box_main">
+                                 <h4 class="shirt_text">Brand new</h4>
+                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 
+                                 <div class="jewellery_img"><img src="{% static 'images/sm-clothes5.jpg'%}"></div>
+                                 <div class="btn_main">
+                                    <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
+                                    <div class="seemore_bt"><a href="{% url 'customer-home-3' %}">See More</a></div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-lg-4 col-sm-4">
+                              <div class="box_main">
+                                 <h4 class="shirt_text">American-clothes</h4>
+                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 
+                                 <div class="jewellery_img"><img src="{% static 'images/sm-clothes6.jpg'%}"></div>
+                                 <div class="btn_main">
+                                    <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
+                                    <div class="seemore_bt"><a href="{% url 'customer-home-3' %}">See More</a></div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+<!-- 
+               <div class="carousel-item">
+                  <div class="container">
+                     <h1 class="fashion_taital">Shoes and Handbags</h1>
+                     <div class="fashion_section_2">
+                        <div class="row">
+                           <div class="col-lg-4 col-sm-4">
+                              <div class="box_main">
+                                 <h4 class="shirt_text">New brand</h4>
+                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 
+                                 <div class="jewellery_img"><img src="{% static 'images/s7.jpeg'%}"></div>
+                                 <div class="btn_main">
+                                    <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
+                                    <div class="seemore_bt"><a href="{% url 'customer-home-2' %}">See More</a></div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-lg-4 col-sm-4">
+                              <div class="box_main">
+                                 <h4 class="shirt_text">Handbags</h4>
+                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 
+                                 <div class="jewellery_img"><img src="{% static 'images/s8.jpg'%}"></div>
+                                 <div class="btn_main">
+                                    <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
+                                    <div class="seemore_bt"><a href="{% url 'customer-home-2' %}">See More</a></div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-lg-4 col-sm-4">
+                              <div class="box_main">
+                                 <h4 class="shirt_text">Latest in town</h4>
+                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 
+                                 <div class="jewellery_img"><img src="{% static 'images/s2.jpg'%}"></div>
+                                 <div class="btn_main">
+                                    <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
+                                    <div class="seemore_bt"><a href="{% url 'customer-home-2' %}">See More</a></div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div> -->
+            </div>
+
+
+             <!-- Homedecor start -->
+             <div class="fashion_section">
+               <div id="main_slider" class="carousel slide" data-ride="carousel">
+                  <div class="carousel-inner">
+                     <div class="carousel-item active">
+                        <div class="container">
+                           <h1 class="fashion_taital">Homedecor and Gadgets</h1>
+                           <div class="fashion_section_2">
+                              <div class="row">
+                                 <div class="col-lg-4 col-sm-4">
+                                    <div class="box_main">
+                                       <h4 class="shirt_text">Laptops</h4>
+                                       <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                
+                                        <div class="tshirt_img"><img src="{% static 'images/h1.png'%}"></div>
+                                       <div class="btn_main">
+                                          <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
+                                          <div class="seemore_bt"><a href="{% url 'customer-home-4' %}">See More</a></div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-lg-4 col-sm-4">
+                                    <div class="box_main">
+                                       <h4 class="shirt_text">New Brand</h4>
+                                       <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>
+                                       <div class="tshirt_img"><img src="{% static 'images/h2.jpg'%}"></div>
+                                       <div class="btn_main">
+                                          <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
+                                          <div class="seemore_bt"><a href="{% url 'customer-home-4' %}">See More</a></div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-lg-4 col-sm-4">
+                                    <div class="box_main">
+                                       <h4 class="shirt_text">Pods</h4>
+                                       <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 
+                                       <div class="tshirt_img"><img src="{% static 'images/h3.jpg'%}"></div>
+                                       <div class="btn_main">
+                                          <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
+                                          <div class="seemore_bt"><a href="{% url 'customer-home-4' %}">See More</a></div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  
+      
+                  </div>
+                  <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
+                  <i class="fa fa-angle-left"></i>
+                  </a>
+                  <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
+                  <i class="fa fa-angle-right"></i>
+                  </a>
+               </div>
+            </div>
+      
+      
+      <!-- Homedecor end -->
+
+
+
+
+            
+
+      <!-- toy start -->
       <div class="fashion_section">
          <div id="electronic_main_slider" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                <div class="carousel-item active">
                   <div class="container">
-                     <h1 class="fashion_taital">Grain/Cereal (Nafaka)</h1>
+                     <h1 class="fashion_taital">Midoli ya watoto (Toys)</h1>
                      <div class="fashion_section_2">
                         <div class="row">
                            <div class="col-lg-4 col-sm-4">
                               <div class="box_main">
-                                 <h4 class="shirt_text">Better for Nutrition</h4>
-                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 <div class="electronic_img"><img src="{% static 'images/cp5.png'%}"></div>
+                                 <h4 class="shirt_text">Baby Toy</h4>
+                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                
+                                  <div class="electronic_img"><img src="{% static 'images/m1.jpg'%}"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="{% url 'customer-home-2' %}">See More</a></div>
+                                    <div class="seemore_bt"><a href="{% url 'customer-home-5' %}">See More</a></div>
 
                                  </div>
                               </div>
                            </div>
                            <div class="col-lg-4 col-sm-4">
                               <div class="box_main">
-                                 <h4 class="shirt_text">Beans</h4>
-                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 <div class="electronic_img"><img src="{% static 'images/cp1.png'%}"></div>
+                                 <h4 class="shirt_text">Baby Toy</h4>
+                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                
+                                  <div class="electronic_img"><img src="{% static 'images/m2.jpg'%}"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="{% url 'customer-home-2' %}">See More</a></div>
+                                    <div class="seemore_bt"><a href="{% url 'customer-home-5' %}">See More</a></div>
                                  </div>
                               </div>
                            </div>
                            <div class="col-lg-4 col-sm-4">
                               <div class="box_main">
-                                 <h4 class="shirt_text">Rice</h4>
-                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 <div class="electronic_img"><img src="{% static 'images/cp8.png'%}"></div>
+                                 <h4 class="shirt_text">Baby Toys</h4>
+                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 
+                                 <div class="electronic_img"><img src="{% static 'images/m3.jpg'%}"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="{% url 'customer-home-2' %}">See More</a></div>
+                                    <div class="seemore_bt"><a href="{% url 'customer-home-5' %}">See More</a></div>
                                  </div>
                               </div>
                            </div>
@@ -443,36 +640,39 @@
                </div>
                <div class="carousel-item">
                   <div class="container">
-                     <h1 class="fashion_taital">Grain/Cereal (Nafaka)</h1>
+                     <h1 class="fashion_taital">Midoli ya watoto (Toys)</h1>
                      <div class="fashion_section_2">
                         <div class="row">
                            <div class="col-lg-4 col-sm-4">
                               <div class="box_main">
-                                 <h4 class="shirt_text">Nice Grains</h4>
-                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 <div class="electronic_img"><img src="{% static 'images/cp1.png'%}"></div>
+                                 <h4 class="shirt_text">Toy</h4>
+                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 
+                                 <div class="electronic_img"><img src="{% static 'images/m4.jpg'%}"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="{% url 'customer-home-2' %}">See More</a></div>
+                                    <div class="seemore_bt"><a href="{% url 'customer-home-5' %}">See More</a></div>
                                  </div>
                               </div>
                            </div>
                            <div class="col-lg-4 col-sm-4">
                               <div class="box_main">
-                                 <h4 class="shirt_text">Beans</h4>
-                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 <div class="electronic_img"><img src="{% static 'images/cp1.png'%}"></div>
+                                 <h4 class="shirt_text">Toy</h4>
+                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 
+                                 <div class="electronic_img"><img src="{% static 'images/m5.jpg'%}"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="{% url 'customer-home-2' %}">See More</a></div>
+                                    <div class="seemore_bt"><a href="{% url 'customer-home-5' %}">See More</a></div>
                                  </div>
                               </div>
                            </div>
                            <div class="col-lg-4 col-sm-4">
                               <div class="box_main">
-                                 <h4 class="shirt_text">Nice Grains</h4>
-                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 <div class="electronic_img"><img src="{% static 'images/cp2.png'%}"></div>
+                                 <h4 class="shirt_text">Baby Toy</h4>
+                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 
+                                 <div class="electronic_img"><img src="{% static 'images/m6.jpg'%}"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="{% url 'customer-home-2' %}">See More</a></div>
+                                    <div class="seemore_bt"><a href="{% url 'customer-home-5' %}">See More</a></div>
                                  </div>
                               </div>
                            </div>
@@ -480,45 +680,51 @@
                      </div>
                   </div>
                </div>
+
+
+<!-- 
                <div class="carousel-item">
                   <div class="container">
-                     <h1 class="fashion_taital">Grain/Cereal (Nafaka)</h1>
+                     <h1 class="fashion_taital">Midoli ya watoto (Toys)</h1>
                      <div class="fashion_section_2">
                         <div class="row">
                            <div class="col-lg-4 col-sm-4">
                               <div class="box_main">
-                                 <h4 class="shirt_text">Beans</h4>
-                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 <div class="electronic_img"><img src="{% static 'images/cp3.png'%}"></div>
+                                 <h4 class="shirt_text">Toy</h4>
+                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 
+                                 <div class="electronic_img"><img src="{% static 'images/m7.jpg'%}"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="{% url 'customer-home-2' %}">See More</a></div>
+                                    <div class="seemore_bt"><a href="{% url 'customer-home-1' %}">See More</a></div>
                                  </div>
                               </div>
                            </div>
                            <div class="col-lg-4 col-sm-4">
                               <div class="box_main">
-                                 <h4 class="shirt_text">Beans</h4>
-                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 <div class="electronic_img"><img src="{% static 'images/cp4.png'%}"></div>
+                                 <h4 class="shirt_text">Mdoli</h4>
+                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 
+                                 <div class="electronic_img"><img src="{% static 'images/m8.jpg'%}"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="{% url 'customer-home-2' %}">See More</a></div>
+                                    <div class="seemore_bt"><a href="{% url 'customer-home-1' %}">See More</a></div>
                                  </div>
                               </div>
                            </div>
                            <div class="col-lg-4 col-sm-4">
                               <div class="box_main">
-                                 <h4 class="shirt_text">Rice</h4>
-                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 <div class="electronic_img"><img src="{% static 'images/cp8.png'%}"></div>
+                                 <h4 class="shirt_text">Toy</h4>
+                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 
+                                 <div class="electronic_img"><img src="{% static 'images/m9.jpeg'%}"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="{% url 'customer-home-2' %}">See More</a></div>
+                                    <div class="seemore_bt"><a href="{% url 'customer-home-1' %}">See More</a></div>
                                  </div>
                               </div>
                            </div>
                         </div>
                      </div>
                   </div>
-               </div>
+               </div> -->
             </div>
             <a class="carousel-control-prev" href="#electronic_main_slider" role="button" data-slide="prev">
             <i class="fa fa-angle-left"></i>
@@ -528,129 +734,6 @@
             </a>
          </div>
       </div>
-      <!-- electronic section end -->
-      <!-- jewellery  section start -->
-      <div class="jewellery_section">
-         <div id="jewellery_main_slider" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-               <div class="carousel-item active">
-                  <div class="container">
-                     <h1 class="fashion_taital">Livestock Keeping (Ufugaji)</h1>
-                     <div class="fashion_section_2">
-                        <div class="row">
-                           <div class="col-lg-4 col-sm-4">
-                              <div class="box_main">
-                                 <h4 class="shirt_text">Super Goat bred</h4>
-                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 <div class="jewellery_img"><img src="{% static 'images/ap1.png'%}"></div>
-                                 <div class="btn_main">
-                                    <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="{% url 'customer-home-1' %}">See More</a></div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="col-lg-4 col-sm-4">
-                              <div class="box_main">
-                                 <h4 class="shirt_text">Slaughter Goat</h4>
-                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 <div class="jewellery_img"><img src="{% static 'images/ap2.png'%}"></div>
-                                 <div class="btn_main">
-                                    <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="{% url 'customer-home-1' %}">See More</a></div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="col-lg-4 col-sm-4">
-                              <div class="box_main">
-                                 <h4 class="shirt_text">Super Goat bred</h4>
-                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 <div class="jewellery_img"><img src="{% static 'images/ap3.png'%}"></div>
-                                 <div class="btn_main">
-                                    <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="{% url 'customer-home-1' %}">See More</a></div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="carousel-item">
-                  <div class="container">
-                     <h1 class="fashion_taital">Livestock Keeping (Ufugaji)</h1>
-                     <div class="fashion_section_2">
-                        <div class="row">
-                           <div class="col-lg-4 col-sm-4">
-                              <div class="box_main">
-                                 <h4 class="shirt_text">Slaughter Goat</h4>
-                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 <div class="jewellery_img"><img src="{% static 'images/ap4.png'%}"></div>
-                                 <div class="btn_main">
-                                    <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="{% url 'customer-home-1' %}">See More</a></div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="col-lg-4 col-sm-4">
-                              <div class="box_main">
-                                 <h4 class="shirt_text">SuperGoat bred</h4>
-                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 <div class="jewellery_img"><img src="{% static 'images/ap5.png'%}"></div>
-                                 <div class="btn_main">
-                                    <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="{% url 'customer-home-1' %}">See More</a></div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="col-lg-4 col-sm-4">
-                              <div class="box_main">
-                                 <h4 class="shirt_text">Butcher Goat</h4>
-                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 <div class="jewellery_img"><img src="{% static 'images/ap1.png'%}"></div>
-                                 <div class="btn_main">
-                                    <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="{% url 'customer-home-1' %}">See More</a></div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="carousel-item">
-                  <div class="container">
-                     <h1 class="fashion_taital">Livestock Keeping (Ufugaji)</h1>
-                     <div class="fashion_section_2">
-                        <div class="row">
-                           <div class="col-lg-4 col-sm-4">
-                              <div class="box_main">
-                                 <h4 class="shirt_text">Goat bred</h4>
-                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 <div class="jewellery_img"><img src="{% static 'images/ap2.png'%}"></div>
-                                 <div class="btn_main">
-                                    <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="{% url 'customer-home-1' %}">See More</a></div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="col-lg-4 col-sm-4">
-                              <div class="box_main">
-                                 <h4 class="shirt_text">Goat bred</h4>
-                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 <div class="jewellery_img"><img src="{% static 'images/ap1.png'%}"></div>
-                                 <div class="btn_main">
-                                    <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="{% url 'customer-home-1' %}">See More</a></div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="col-lg-4 col-sm-4">
-                              <div class="box_main">
-                                 <h4 class="shirt_text">Goat bred</h4>
-                                 <p class="price_text">Affordable  <span style="color: #262626;">Price</span></p>                                 <div class="jewellery_img"><img src="{% static 'images/ap3.png'%}"></div>
-                                 <div class="btn_main">
-                                    <div class="buy_bt"><a href="{% url 'pay' %}">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="{% url 'customer-home-1' %}">See More</a></div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
             <a class="carousel-control-prev" href="#jewellery_main_slider" role="button" data-slide="prev">
             <i class="fa fa-angle-left"></i>
             </a>
@@ -662,11 +745,14 @@
             </div>
          </div>
       </div>
-      <!-- jewellery  section end -->
+      <!-- Toy end -->
+
+
+
       <!-- footer section start -->
       <div class="footer_section layout_padding">
          <div class="container">
-            <div class="footer_logo"><a href="{% url 'admin-dashboard' %}"><img src="{% static 'images/apex_logo.png'%}" height="80px" width="80px"></a></div>
+            <div class="footer_logo"><a href="{% url 'admin-dashboard' %}"><img src="{% static 'images/logo.png'%}" height="80px" width="80px"></a></div>
             <div class="input_bt">
             
                <input type="text" class="mail_bt" placeholder="Your Email" name="Your Email">
@@ -678,17 +764,17 @@
                   <li><a href="#">Gift Ideas</a></li>
                   <li><a href="#">New Releases</a></li>
                   <li><a href="https://www.nyumbachap.com">Today's Deals</a></li>
-                  <li><a href="#">Customer Service</a></li>
+                  <li><a href="https://api.whatsapp.com/send?phone=255715173807&text=Hello%20Boss.%0d%0aHow%20are%20you%20%3f%0d%0aI%20came%20from%20your%20website.&source=&data=#">Customer Service</a></li>
                </ul>
             </div>
-            <div class="location_main">Help Line  Number : <a href="#">+255 761 438 160</a></div>
+            <div class="location_main">Help Line  Number : <a href="#">+255 715173807</a></div>
          </div>
       </div>
       <!-- footer section end -->
       <!-- copyright section start -->
       <div class="copyright_section">
          <div class="container">
-            <p class="copyright_text">© 2024 All Rights Reserved. Design by <a href="https://www.nyumbachap.com">NyumbaChap</a></p>
+            <p class="copyright_text">© 2025 All Rights Reserved. Design by <a href="https://www.nyumbachap.com">NyumbaChap</a></p>
          </div>
       </div>
       <!-- copyright section end -->

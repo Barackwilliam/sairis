@@ -42,6 +42,21 @@ class ProductForm_3(forms.ModelForm):
         model=models.Product_3
         fields=['name','price','description','product_image']
 
+
+
+class ProductForm_4(forms.ModelForm):
+    class Meta:
+        model=models.Product_4
+        fields=['name','price','description','product_image']
+
+
+
+class ProductForm_5(forms.ModelForm):
+    class Meta:
+        model=models.Product_5
+        fields=['name','price','description','product_image']
+
+
 #address of shipment
 class AddressForm(forms.Form):
     Email = forms.EmailField()

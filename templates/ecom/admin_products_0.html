@@ -1,0 +1,296 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin product control</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #0044cc;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        header nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s, transform 0.3s;
+            position: relative;
+        }
+
+        header a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: white;
+            left: 50%;
+            bottom: -4px;
+            transition: all 0.3s;
+        }
+
+        header a:hover {
+            color: #ffcc00;
+            transform: scale(1.1);
+        }
+
+        header a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        header a.active {
+            color: #ffcc00;
+            text-shadow: 0px 0px 5px #fff;
+        }
+
+        /* Content styles */
+        .content {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .table-container {
+            overflow-x: auto; /* Enable horizontal scrolling */
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        th {
+            background-color: #0044cc;
+            color: white;
+        }
+
+        .btn {
+            padding: 0.7rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .btn-blue {
+            background-color: #0044cc;
+            color: white;
+        }
+
+        .btn-red {
+            background-color: #ff0000;
+            color: white;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        .btn-blue:hover {
+            background-color: #0033aa;
+        }
+
+        .btn-red:hover {
+            background-color: #cc0000;
+        }
+
+        .add-button {
+            width: 60px;
+            height: 60px;
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .add-button:hover {
+            background-color: #cc0000;
+            transform: rotate(90deg) scale(1.1);
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #0044cc;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .social-buttons a {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            color: #0044cc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .social-buttons a:hover {
+            background-color: #ffcc00;
+            transform: scale(1.2);
+            color: white;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            header nav {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .content {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h1 class="display-5">SairisGroup</h1>
+    </div>
+    <nav>
+        <a href="{% url 'admin-dashboard' %}">Dashboard</a>
+        <a href="/view-customer">Customers</a>
+        <!-- <a href="/admin-view-booking">Booking</a> -->
+        <a href="/view-feedback">Feedback</a>
+        <a href="{% url 'way' %}">Add product</a>
+    </nav>
+</header>
+
+    <div class="content">
+        <div class="table-container">
+
+            <div class="panel-heading">
+                <h6 class="panel-title">Nguo Za wakubwa Zilizosajiliwa</h6>
+              </div>
+    
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Image</th>
+                        <th>Price</th>
+                        <th>Description</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                  {% for p in products %}
+                  {% if p %}
+                    <tr>
+                        <td>{{ p.name }}</td>
+                        <td><img src="{{p.product_image.url }}" alt="{{ p.name }}" height="80px" width="80px"></td>
+                        <td>Tsh.{{ p.price }}</td>
+                        <td>{{ p.description }}</td>
+                        <td><button class="btn btn-blue"><a href="{% url 'update-product' p.id %}">Update</a></button></td>
+                        <td><button class="btn btn-red"><a href="{% url 'delete-product' p.id %}">Delete</a></button></td>
+                    </tr>
+                    
+                    {% else %}
+                    <tr>
+                      <td colspan="6" class="text-center">No products available</td>
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+        <button class="add-button"><a href="{% url 'way' %}">+</a></button>
+    </div>
+
+    <footer>
+      <div style="color:#ffffff;" class="wow fadeInUp footer-copyright">
+        <p>Made in Tanzania <br>
+          Copyright &copy; 2025 SairisGroup co.limited. All Rights Reserved </p>
+      </div>
+        <div class="social-buttons">
+            <!-- <a href="#" title="Facebook">&#x1F426;</a>
+            <a href="#" title="WhatsApp">&#x1F4F2;</a>
+            <a href="#" title="Instagram">&#x1F4F7;</a>
+            <a href="#" title="Twitter">&#x1F426;</a>
+ -->
+
+
+
+
+<!--             
+              < <a id="ftr" href="#" class="fa fa-facebook"></a><br>
+              <a id="ftr" href="https://api.whatsapp.com/send?phone=255629712678&text=Hello%20Admin.%0d%0aHow%20are%20you%20%3f%0d%0aI%20came%20from%20your%20website.&source=&data=#" class="fa fa-whatsapp"></a>
+              <a id="ftr" href="#" class="fa fa-instagram"></a>
+              <a id="ftr" href="#" class="fa fa-twitter"></a>
+             -->
+        </div> 
+    </footer>
+</body>
+</html>

@@ -1,0 +1,517 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hosting Tracker (TSh)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1D3557, #457B9D); /* Gradient background */
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 2.8em;
+            margin-bottom: 30px;
+            font-weight: 700;
+            text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+
+        h1:hover {
+            color: #FF6F61; /* Change color on hover */
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+            padding: 40px;
+            background-color: rgba(0, 0, 0, 0.7); /* Transparent background */
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        /* Animation to fade in */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            background-color: #1a2b3c;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        table:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        th, td {
+            padding: 18px 24px;
+            text-align: center;
+            font-size: 1.1em;
+            border-bottom: 1px solid #fff;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        th {
+            background-color: #2a3d57; /* Darker blue for header */
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #3a5a73; /* Dark Blue for even rows */
+        }
+
+        tr:hover {
+            background-color: #FF6F61; /* Highlight on hover */
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .warning, .service-warning, .payment-warning {
+            display: none;
+            margin-top: 25px;
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 1.1em;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: opacity 0.4s ease;
+        }
+
+        .warning {
+            background-color: #e74c3c; /* Red background */
+            color: white;
+        }
+
+        .payment-warning {
+            background-color: #f39c12; /* Yellow background */
+            color: black;
+        }
+
+        .service-warning {
+            background-color: #f39c12; /* Orange background */
+            color: black;
+        }
+
+        #month-info {
+            font-size: 1.3em;
+            margin-top: 25px;
+            color: white;
+            font-weight: 500;
+        }
+
+        /* Responsive Styling */
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 2.2em;
+            }
+
+            .container {
+                padding: 30px;
+                width: 90%;
+            }
+
+            th, td {
+                font-size: 1em;
+                padding: 12px 16px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .container {
+                padding: 20px;
+                width: 95%;
+            }
+
+            th, td {
+                font-size: 0.9em;
+                padding: 10px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Hosting Usage and Cost Tracker (TSh)</h1>
+        
+        <!-- Time Remaining Table -->
+        <!-- <table>
+            <thead>
+                <tr>
+                    <th>Days Remaining</th>
+                    <th>Hours</th>
+                    <th>Minutes</th>
+                    <th>Seconds</th>
+                </tr>
+            </thead>
+            <tbody id="time-table">
+                <tr>
+                    <td id="days">--</td>
+                    <td id="hours">--</td>
+                    <td id="minutes">--</td>
+                    <td id="seconds">--</td>
+                </tr>
+            </tbody>
+        </table> -->
+
+        <!-- Cost Table -->
+        <!-- <table>
+            <thead>
+                <tr>
+                    <th>Total Cost (TSh)</th>
+                </tr>
+            </thead>
+            <tbody id="cost-table">
+                <tr>
+                    <td id="cost">--</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div id="warning" class="warning">**Warning:** Please renew your hosting plan within the next 10 days to avoid service interruption!</div>
+        <div id="payment-warning" class="payment-warning">**Warning:** Your website is about to be suspended in 2 days due to non-payment. Contact the developer to renew!</div>
+        <div id="service-warning" class="service-warning">**Notice:** Some services have been suspended due to non-payment. Contact the developer for renewal!</div>
+
+        <div id="month-info">Hosting usage: <span id="months-used">--</span> months</div>
+    </div>
+
+    <script>
+        const costPerSecond = 100 / 3600; // TSh 100 per hour -->
+
+        <!-- // Retrieve start date and payment deadline from localStorage, or set them if not set
+        let startDate = localStorage.getItem('startDate');
+        let paymentDeadline = localStorage.getItem('paymentDeadline');
+
+        // If no start date, initialize it as the current date
+        if (!startDate) {
+            startDate = new Date();
+            localStorage.setItem('startDate', startDate);
+            // Set payment deadline to one month from the start date
+            paymentDeadline = new Date(startDate);
+            paymentDeadline.setMonth(paymentDeadline.getMonth() + 1);
+            localStorage.setItem('paymentDeadline', paymentDeadline);
+        } else {
+            startDate = new Date(startDate);
+            paymentDeadline = new Date(paymentDeadline);
+        }
+
+        // Function to reset the timer after 30 days
+        function resetHosting() {
+            const now = new Date();
+            if (now - startDate >= 30 * 24 * 60 * 60 * 1000) {
+                // Reset to start fresh after 30 days
+                localStorage.setItem('startDate', now);
+                const newPaymentDeadline = new Date(now);
+                newPaymentDeadline.setMonth(newPaymentDeadline.getMonth() + 1);
+                localStorage.setItem('paymentDeadline', newPaymentDeadline);
+            }
+        }
+
+        function updateInfo() {
+            const now = new Date();
+            const timeRemaining = paymentDeadline - now;
+            const totalSecondsUsed = Math.floor((now - startDate) / 1000);
+            const costSoFar = (totalSecondsUsed * costPerSecond).toFixed(2);
+            const monthsUsed = Math.floor((now - startDate) / (1000 * 60 * 60 * 24 * 30));
+
+            if (timeRemaining > 0) {
+                const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+                document.getElementById("days").innerText = days;
+                document.getElementById("hours").innerText = hours;
+                document.getElementById("minutes").innerText = minutes;
+                document.getElementById("seconds").innerText = seconds;
+                document.getElementById("cost").innerText = "TSh {costSoFar}";
+                document.getElementById("months-used").innerText = monthsUsed;
+
+                // Show warning messages based on days left
+                if (days <= 10) {
+                    document.getElementById("warning").style.display = "block";
+                }
+                if (days <= 5) {
+                    document.getElementById("payment-warning").style.display = "block";
+                }
+                if (days <= 2) {
+                    document.getElementById("service-warning").style.display = "block";
+                }
+            } else {
+                document.getElementById("days").innerText = "--";
+                document.getElementById("hours").innerText = "--";
+                document.getElementById("minutes").innerText = "--";
+                document.getElementById("seconds").innerText = "--";
+                document.getElementById("cost").innerText = "TSh 0.00";
+                document.getElementById("warning").innerText = "Service has been suspended due to non-payment!";
+            }
+
+            // Reset after 30 days
+            resetHosting();
+        }
+
+        setInterval(updateInfo, 1000);
+    </script>
+
+</body>
+</html> --> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Billing table for hosting service">
+    <title>Billing Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: white;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #004080;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #FF9980;
+        }
+
+        .warning, #success {
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            display: none;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .warning {
+            background-color: #f44336;
+            color: white;
+        }
+
+        #success {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        #history {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #004080;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #003060;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hosting Billing Information</h1>
+
+    <table>
+        <tr>
+            <th>Item</th>
+            <th>Details</th>
+        </tr>
+        <tr>
+            <td>Start Date</td>
+            <td id="start-date">N/A</td>
+        </tr>
+        <tr>
+            <td>Payment Deadline</td>
+            <td id="payment-deadline">N/A</td>
+        </tr>
+        <tr>
+            <td>Service Cost So Far</td>
+            <td id="cost">N/A</td>
+        </tr>
+        <tr>
+            <td>Time Elapsed</td>
+            <td id="time-elapsed">N/A</td>
+        </tr>
+    </table>
+
+    <div id="warning" class="warning"></div>
+    <div id="success">Billing information has been reset successfully!</div>
+
+         
+
+    <h2>Hosting Plan History</h2>
+    <div id="history">
+        <p><strong>Total Time Elapsed:</strong> <span id="total-time">N/A</span></p>
+        <p><strong>Total Days:</strong> <span id="total-days">N/A</span></p>
+        <p><strong>Total Months:</strong> <span id="total-months">N/A</span></p>
+        <p><strong>Months Recorded:</strong> <span id="months-history">N/A</span></p>
+    </div>
+
+    <script>
+        const costPerSecond = 0.01;
+        let interval;
+        let monthsHistory = JSON.parse(localStorage.getItem('monthsHistory')) || [];
+
+        let startDate = localStorage.getItem('startDate') 
+            ? new Date(localStorage.getItem('startDate')) 
+            : new Date('2025-01-11T10:00:00'); // Default start date
+
+        let paymentDeadline = localStorage.getItem('paymentDeadline') 
+            ? new Date(localStorage.getItem('paymentDeadline')) 
+            : new Date(new Date(startDate).setDate(startDate.getDate() + 30)); // Default deadline
+
+        if (!localStorage.getItem('startDate')) {
+            localStorage.setItem('startDate', startDate.toISOString());
+            localStorage.setItem('paymentDeadline', paymentDeadline.toISOString());
+        }
+
+        function updateInfo() {
+            const now = new Date();
+            const totalSecondsUsed = Math.floor((now - startDate) / 1000);
+            const totalMinutesUsed = Math.floor(totalSecondsUsed / 60);
+            const totalHoursUsed = Math.floor(totalMinutesUsed / 60);
+            const totalDaysUsed = Math.floor(totalHoursUsed / 24);
+            const totalMonthsUsed = Math.floor(totalDaysUsed / 10);
+
+            const costSoFar = (totalSecondsUsed * costPerSecond).toFixed(2);
+
+            document.getElementById('start-date').innerText = startDate.toLocaleString();
+            document.getElementById('payment-deadline').innerText = new Date(paymentDeadline).toLocaleString();
+            document.getElementById('cost').innerText = `TSh ${costSoFar}`;
+            document.getElementById('time-elapsed').innerText = `${totalHoursUsed} hours, ${totalMinutesUsed % 60} minutes, ${totalSecondsUsed % 60} seconds`;
+
+            // Update history section
+            document.getElementById('total-time').innerText = `${totalHoursUsed} hours, ${totalMinutesUsed % 60} minutes, ${totalSecondsUsed % 60} seconds`;
+            document.getElementById('total-days').innerText = `${totalDaysUsed} days`;
+            document.getElementById('total-months').innerText = `${totalMonthsUsed} months`;
+
+            const daysRemaining = Math.floor((paymentDeadline - now) / (1000 * 60 * 60 * 24));
+
+            // Reset warnings
+            document.getElementById('warning').style.display = 'none';
+
+            // Show appropriate warnings
+            if (daysRemaining <= 2) {
+                document.getElementById('warning').innerText = "Some services have been suspended due to non-payment. Contact developer for renewal before totally closed.";
+                document.getElementById('warning').style.display = 'block';
+            } else if (daysRemaining <= 5) {
+                document.getElementById('warning').innerText = "Your website is about to be suspended in 2 days due to non-payment. Contact developer to renew!";
+                document.getElementById('warning').style.display = 'block';
+            } else if (daysRemaining <= 10) {
+                document.getElementById('warning').innerText = "Please renew your hosting plan within the next 10 days to avoid service interruption!";
+                document.getElementById('warning').style.display = 'block';
+            }
+
+            // Handle deadline expiry
+            if (daysRemaining <= 0) {
+                const currentMonth = new Date(paymentDeadline).toLocaleString('default', { month: 'long', year: 'numeric' });
+                if (!monthsHistory.includes(currentMonth)) {
+                    monthsHistory.push(currentMonth);
+                    localStorage.setItem('monthsHistory', JSON.stringify(monthsHistory));
+                }
+
+                startDate = paymentDeadline;
+                paymentDeadline = new Date(new Date(startDate).setDate(startDate.getDate() + 30));
+                localStorage.setItem('startDate', startDate.toISOString());
+                localStorage.setItem('paymentDeadline', paymentDeadline.toISOString());
+                // localStorage.setItem('paymentDeadline', new Date(Date.now() + (5 * 24 * 60 * 60 * 1000)).toISOString());
+
+
+                updateInfo();
+            }
+        }
+
+        function resetHosting() {
+            const now = new Date();
+            startDate = now;
+            paymentDeadline = new Date(now.setDate(now.getDate() + 30));
+
+            localStorage.setItem('startDate', startDate.toISOString());
+            localStorage.setItem('paymentDeadline', paymentDeadline.toISOString());
+
+            document.getElementById('success').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('success').style.display = 'none';
+            }, 3000);
+
+            updateInfo();
+        }
+
+        function displayMonthsHistory() {
+            const monthsList = monthsHistory.join(', ');
+            document.getElementById('months-history').innerText = monthsList ? monthsList : 'No months recorded yet';
+        }
+
+        updateInfo();
+        interval = setInterval(updateInfo, 1000);  // Update every second
+
+        displayMonthsHistory();
+    </script>
+</body>
+</html>
