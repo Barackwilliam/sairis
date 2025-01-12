@@ -1,3 +1,1 @@
-web: waitress-serve --listen=*:8000 ecommerce.wsgi:application
-
-
+web: gunicorn ecommerce.wsgi --log-file -
