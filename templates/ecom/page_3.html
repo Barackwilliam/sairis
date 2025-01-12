@@ -10,7 +10,7 @@
       font-family: 'Arial', sans-serif;
       margin: 0;
       padding: 0;
-      color: #f8f9fa; /* Light text color */
+      color: #f8f9fa; 
       background-image: url('{% static 'images/page.png' %}'); 
       background-size: cover; 
       background-repeat: no-repeat; 
@@ -64,8 +64,8 @@
     }
     .gallery {
       position: relative;
-      width: 250px;
-      height: 250px;
+      width: 300px;
+      height: 300px;
       overflow: hidden;
       cursor: pointer;
       border-radius: 10px;
@@ -172,53 +172,118 @@
       display: none;
       z-index: 9;
     }
+
+    /* Home Button with Animation */
+    .home-btn {
+      position: fixed;
+      top: 10px;
+      left: 20px;
+      background: linear-gradient(45deg, #ff6b6b, #ffcc00);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      z-index: 100;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      animation: colorChangeButton 3s ease-in-out infinite;
+      transition: transform 0.3s ease;
+    }
+
+    .home-btn:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes colorChangeButton {
+      0% { background: linear-gradient(45deg, #ff6b6b, #ffcc00); }
+      25% { background: linear-gradient(45deg, #ffcc00, #10ac84); }
+      50% { background: linear-gradient(45deg, #10ac84, #1dd1a1); }
+      75% { background: linear-gradient(45deg, #1dd1a1, #54a0ff); }
+      100% { background: linear-gradient(45deg, #54a0ff, #5f27cd); }
+    }
+
+    /* Media Queries for Responsiveness */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 20px;
+      }
+      .gallery-container {
+        padding: 10px;
+      }
+      .gallery {
+        width: 250px;
+        height: 250px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      header h1 {
+        font-size: 18px;
+      }
+      .gallery-container {
+        padding: 5px;
+      }
+      .gallery {
+        width: 100%;
+        height: 200px;
+      }
+      .gallery img {
+        width: 100%;
+        height: 100%;
+      }
+    }
   </style>
 </head>
 <body>
 
+<!-- Home Button -->
+<a href="/" class="home-btn">Home</a>
+
 <!-- Header -->
 <header>
-  <h1>Nguo Za Watoto</h1>
+  <h1>Nguo za watoto</h1>
   <nav>
-    <a href="/">Home</a>
-    <!-- <a href="#gallery">Gallery</a>
-    <a href="#contact">Contact</a> -->
+   <p> <a href="/" style="color: rgb(251, 255, 0);background-color: #1897ad;">Home</a></p>
   </nav>
 </header>
 
-<!-- Main Content -->
- 
-{% for product in product_3 %} 
+<!-- Main Content (Gallery) -->
 <div class="gallery-container">
-  <div class="gallery" onclick="openModal('{{product.name}}', '{{product.description}}.', 'Tsh.{{product.price}}/=')">
-    <img src="{{ product.product_image.url }}" alt="{{product.name}}">
-    <div class="tazama">Open</div>
-  </div>
+  {% for product in product_3 %} 
+    <div class="gallery" onclick="openModal('{{ product.name }}', '{{ product.description }}', 'Tsh.{{ product.price }}/=')">
+      <img src="{{ product.product_image.url }}" alt="{{ product.name }}">
+      <div class="tazama">Open</div>
+    </div>
   {% endfor %}
-  
 </div>
 
 <!-- Modal -->
 <div class="overlay" onclick="closeModal()"></div>
 <div class="modal" id="modal">
-  <h2 id="modalTitle">Title</h2>
+  <h2 id="modalTitle">Product Name</h2>
   <p id="modalDescription">Description</p>
   <p id="modalPrice">Price</p>
   <div class="buttons">
-    <button class="buy"><a href="{% url 'pay' %}">Nunua</a></button>
+    <button class="buy"><a href="{% url 'pay' %}" style="text-decoration: none;">Nunua</a></button>
     <button class="go-back" onclick="closeModal()">Go Back</button>
   </div>
 </div>
 
 <script>
+  // Open Modal
   function openModal(title, description, price) {
-    document.getElementById('modalTitle').textContent = title;
-    document.getElementById('modalDescription').textContent = description;
-    document.getElementById('modalPrice').textContent = price;
-    document.getElementById('modal').style.display = 'block';
+    document.getElementById('modalTitle').innerText = title;
+    document.getElementById('modalDescription').innerText = description;
+    document.getElementById('modalPrice').innerText = price;
     document.querySelector('.overlay').style.display = 'block';
+    document.getElementById('modal').style.display = 'block';
   }
 
+  // Close Modal
   function closeModal() {
     document.getElementById('modal').style.display = 'none';
     document.querySelector('.overlay').style.display = 'none';
