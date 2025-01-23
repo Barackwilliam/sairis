@@ -1,7 +1,5 @@
 {% load static %}
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,38 +53,11 @@
         <div class="container-fluid">
             <a class="navbar-brand text-white" href="/admin-products">Products</a>
             <a class="nav-link" href="/view-customer">Customers</a>
-            <!-- <a class="nav-link" href="/view-feedback">Feedback</a> -->
             
-                 <form method="POST" action="{% url 'logout' %}">
-                    {% csrf_token %}
-                    <input type="submit" value="Logout">
-             
-            
-          
-                </form>
-
-
-            <!-- <div class="collapse navbar-collapse">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/view-customer">Customers</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/view-feedback">Feedback</a>
-                    </li>
-
-
-
-                    <form method="POST" action="{% url 'logout' %}">
-                        {% csrf_token %}
-                        <input type="submit" value="Logout">
-                    
-                    
-                  
-                </form>
-
-                </ul>
-            </div> -->
+            <form method="POST" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <input type="submit" value="Logout">
+            </form>
         </div>
     </nav>
 
@@ -94,14 +65,14 @@
     <div class="container main-content">
         <header class="d-flex justify-content-between align-items-center mb-4">
             <h1 class="h3">Sairis Dashboard</h1>
-            <!-- <input type="search" class="form-control w-25"> -->
         </header>
+
         <!-- Stats Cards -->
         <div class="row g-4">
             <div class="col-md-4">
                 <div class="card text-center p-3">
-                    <h5>Total Products</h5>
-                    <h2>{{productcount}}</h2>
+                    <h5 id="productCategory">Jumla ya bidhaa Zote</h5> <!-- Dynamic category name -->
+                    <h2 id="productCount">{{total_product_count}}</h2> <!-- Dynamic product count -->
                 </div>
             </div>
             <div class="col-md-4">
@@ -116,8 +87,6 @@
                     <h2>{{customercount}}</h2>
                 </div>
             </div>
-
-
             <div class="col-md-4">
                 <div class="card text-center p-3">
                     <h5>Hosting Bill Status</h5>
@@ -125,6 +94,7 @@
                 </div>
             </div>
         </div>
+
         <!-- Charts -->
         <div class="row g-4 mt-4">
             <div class="col-md-6">
@@ -178,6 +148,36 @@
                 }]
             }
         });
+    </script>
+
+    <script>
+        // Array of product categories and their respective counts
+        const productSlides = [
+    { category: 'Nguo Za wakubwa', count: {{ productcount|default:0 }} },
+    { category: 'Mikoba (Handbags)', count: {{ productcount_1|default:0 }} },
+    { category: 'Viatu (Shoes)', count: {{ productcount_2|default:0 }} },
+    { category: 'Nguo Za Watoto (clothes)', count: {{ productcount_3|default:0 }} },
+    { category: 'Homedecor na Gadgets', count: {{ productcount_4|default:0 }} },
+    { category: 'Midori (Toys)', count: {{ productcount_5|default:0 }} }
+];
+
+        let currentSlideIndex = 0; // Keep track of the current slide
+
+        // Function to update the product slide
+        function updateSlide() {
+            // Get the current slide data
+            const slide = productSlides[currentSlideIndex];
+            
+            // Update the category and count dynamically
+            document.getElementById('productCategory').textContent = slide.category;
+            document.getElementById('productCount').textContent = slide.count;
+
+            // Move to the next slide, looping back to the first after the last
+            currentSlideIndex = (currentSlideIndex + 1) % productSlides.length;
+        }
+
+        // Set an interval to automatically update slides every 4 seconds
+        setInterval(updateSlide, 5000);
     </script>
 </body>
 </html>

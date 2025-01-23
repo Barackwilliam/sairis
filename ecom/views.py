@@ -86,6 +86,12 @@ def admin_dashboard_view(request):
     # for cards on dashboard
     customercount=models.Customer.objects.all().count()
     productcount=models.Product.objects.all().count()
+    productcount_1=models.Product_1.objects.all().count()
+    productcount_2=models.Product_2.objects.all().count()
+    productcount_3=models.Product_3.objects.all().count()
+    productcount_4=models.Product_4.objects.all().count()
+    productcount_5=models.Product_5.objects.all().count()
+    total_product_count = productcount + productcount_1 + productcount_2 + productcount_3 + productcount_4 + productcount_5
     ordercount=models.Orders.objects.all().count()
 
     # for recent order tables
@@ -101,6 +107,12 @@ def admin_dashboard_view(request):
     mydict={
     'customercount':customercount,
     'productcount':productcount,
+    'productcount_1':productcount_1,
+    'productcount_2':productcount_2,
+    'productcount_3':productcount_3,
+    'productcount_4':productcount_4,
+    'productcount_5':productcount_5,
+    'total_product_count':total_product_count,
     'ordercount':ordercount,
     'data':zip(ordered_products,ordered_bys,orders),
     }
